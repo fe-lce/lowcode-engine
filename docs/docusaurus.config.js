@@ -20,8 +20,8 @@ const config = {
   projectName: 'lowcode-engine', // Usually your repo name.
 
   i18n: {
-    defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans'],
+    defaultLocale: 'zh',
+    locales: ['zh'],
   },
 
   plugins: [
@@ -79,6 +79,7 @@ const config = {
   themes: [
     [
       require.resolve('@easyops-cn/docusaurus-search-local'),
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
       {
         hashed: true,
         // For Docs using Chinese, The `language` is recommended to set to:

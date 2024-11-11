@@ -8,7 +8,7 @@ export default function ToIndex(): JSX.Element {
         /**
          * 跳转到首页
          */
-        window.location.href = '/index';
+        window.location.href = '/site/docs/guide/quickStart/intro';
         return <></>;
       }}
     </BrowserOnly>
