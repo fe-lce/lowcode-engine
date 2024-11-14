@@ -9,14 +9,14 @@ const navbar = require('./config/navbar');
 const config = {
   title: 'Low-Code Engine',
   tagline: 'Low-Code Engine is awesome!',
-  url: 'https://lowcode-engine.cn',
+  url: 'https://felce.cn',
   baseUrl: '/site/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon:
     'https://img.alicdn.com/imgextra/i2/O1CN01TNJDDg20pKniPOkN4_!!6000000006898-2-tps-66-78.png',
 
-  organizationName: 'alibaba', // Usually your GitHub org/user name.
+  organizationName: 'fe-lce', // Usually your GitHub org/user name.
   projectName: 'lowcode-engine', // Usually your repo name.
 
   i18n: {
@@ -61,7 +61,7 @@ const config = {
     navbar,
     footer: {
       // style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} 阿里巴巴集团, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} felce, Inc. Built with Docusaurus.`,
     },
     // 主题切换
     prism: {
