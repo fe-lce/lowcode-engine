@@ -10,7 +10,7 @@ const config = {
   title: 'Low-Code Engine',
   tagline: 'Low-Code Engine is awesome!',
   url: 'https://felce.cn',
-  baseUrl: '/site/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon:
