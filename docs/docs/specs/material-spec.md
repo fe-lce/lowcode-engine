@@ -145,11 +145,11 @@ npm install @alifd/ice-layout -S
     "@alifd/next": "1.x"          // 【可选】可以是一个 util 类型的组件，如果依赖 next，请务必写语义化版本号，不要写*这种
   },
   "devDependencies": {
-    "react": "^16.5.0",
-    "react-dom": "^16.5.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "peerDependencies": {
-    "react": "^16.5.0"
+    "react": "^18"
   },
   "componentConfig": {            // 【私有字段】组件配置信息
     "name": "button",             // 组件英文名

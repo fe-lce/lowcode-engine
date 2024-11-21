@@ -16,16 +16,16 @@
     "@felce/lowcode-types": "1.4.1",
     "@felce/lowcode-utils": "1.4.1",
     "classnames": "^2.2.6",
-    "react": "^16",
-    "react-dom": "^16.7.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "ric-shim": "^1.0.1"
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.18",
     "@types/classnames": "^2.2.7",
-    "@types/node": "^13.7.1",
-    "@types/react": "^16",
-    "@types/react-dom": "^16",
+    "@types/node": "^18",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
     "build-plugin-fusion": "^0.1.1",
     "build-plugin-moment-locales": "^0.1.0"
   },

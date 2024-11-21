@@ -21,13 +21,13 @@
     "@felce/lowcode-designer": "1.4.1",
     "@felce/lowcode-editor-core": "1.4.1",
     "@felce/lowcode-utils": "1.4.1",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.3",
-    "@types/react": "^16.9.13",
-    "@types/react-dom": "^16.9.4"
+    "@types/react": "^18",
+    "@types/react-dom": "^18"
   },
   "publishConfig": {
     "access": "public",
