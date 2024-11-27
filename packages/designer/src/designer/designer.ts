@@ -37,7 +37,14 @@ import {
   Logger,
 } from '@felce/lowcode-utils';
 import { IProject, Project } from '../project';
-import { Node, DocumentModel, insertChildren, INode, ISelection } from '../document';
+import {
+  Node,
+  DocumentModel,
+  insertChildren,
+  INode,
+  ISelection,
+  IDocumentModel,
+} from '../document';
 import { ComponentMeta, IComponentMeta } from '../component-meta';
 import { INodeSelector, Component } from '../simulator';
 import { Scroller } from './scroller';
@@ -99,6 +106,8 @@ export interface IDesigner {
   get simulatorComponent(): ComponentType<any> | undefined;
 
   get currentSelection(): ISelection | undefined;
+
+  get currentDocument(): IDocumentModel | null | undefined;
 
   createScroller(scrollable: IPublicTypeScrollable): IPublicModelScroller;
 
