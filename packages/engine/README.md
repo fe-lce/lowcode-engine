@@ -23,8 +23,6 @@
 
 </div>
 
-
-
 [![](https://img.alicdn.com/imgextra/i2/O1CN01UhoS7C1sNNhySvfWi_!!6000000005754-2-tps-2878-1588.png)](https://lowcode-engine.cn)
 
 简体中文 | [English](packages/engine/README-en_US.md)
@@ -76,7 +74,7 @@ skeleton.add({
 init(document.getElementById('lce'));
 ```
 
-### 工程化配置：
+### 工程化配置
 
 ```json
 {
@@ -87,7 +85,7 @@ init(document.getElementById('lce'));
 }
 ```
 
-### cdn 可选方式：
+### cdn 可选方式
 
 #### unpkg
 
@@ -117,6 +115,50 @@ https://cdn.jsdelivr.net/npm/@felce/lowcode-vue-simulator-renderer@1.4.1/dist/js
 
 将源码中 packages/engine/dist 和 packages/react-simulator-renderer/dist（packages/vue-simulator-renderer/dist） 下的文件传至你的 cdn 提供商
 
+## 🧺渲染器
+
+| 工具名称                                                                       | 版本                                                                                   | 描述             |
+| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- | ---------------- |
+| [@felce/lowcode-engine-ext][github-ext-url]                                    | [![NPM version][npm-ext-image]][npm-ext-url]                                           | 引擎设置器集     |
+| [@felce/lowcode-react-renderer-core][github-react-renderer-core-url]           | [![NPM version][npm-react-renderer-core-image]][npm-react-renderer-core-url]           | React 渲染器核心 |
+| [@felce/lowcode-react-renderer][github-react-renderer-url]                     | [![NPM version][npm-react-renderer-image]][npm-react-renderer-url]                     | React 渲染器     |
+| [@felce/lowcode-react-simulator-renderer][github-react-simulator-renderer-url] | [![NPM version][npm-react-simulator-renderer-image]][npm-react-simulator-renderer-url] | React 渲染器画布 |
+| [@felce/lowcode-vue-renderer-core][github-vue-renderer-core-url]               | [![NPM version][npm-vue-renderer-core-image]][npm-vue-renderer-core-url]               | Vue 渲染器核心   |
+| [@felce/lowcode-vue-renderer][github-vue-renderer-url]                         | [![NPM version][npm-vue-renderer-image]][npm-vue-renderer-url]                         | Vue 渲染器       |
+| [@felce/lowcode-vue-simulator-renderer][github-vue-simulator-renderer-url]     | [![NPM version][npm-vue-simulator-renderer-image]][npm-vue-simulator-renderer-url]     | Vue 渲染器画布   |
+
+<!-- setter -->
+
+[npm-ext-image]: https://img.shields.io/npm/v/@felce/lowcode-engine-ext.svg?style=flat-square
+[npm-ext-url]: http://npmjs.org/package/@felce/lowcode-engine-ext
+[github-ext-url]: https://github.com/fe-lce/lowcode-engine-ext
+[download-ext-image]: https://img.shields.io/npm/dm/@felce/lowcode-engine-ext.svg?style=flat-square
+[download-ext-url]: https://npmjs.org/package/@felce/lowcode-engine-ext
+
+<!-- React 系列 -->
+
+[npm-react-renderer-core-url]: http://npmjs.org/package/@felce/lowcode-react-renderer-core
+[npm-react-renderer-core-image]: https://img.shields.io/npm/v/@felce/lowcode-react-renderer-core.svg?style=flat-square
+[github-react-renderer-core-url]: https://github.com/fe-lce/lowcode-engine-react/tree/main/packages/renderer-core
+[npm-react-renderer-url]: http://npmjs.org/package/@felce/lowcode-react-renderer
+[npm-react-renderer-image]: https://img.shields.io/npm/v/@felce/lowcode-react-renderer.svg?style=flat-square
+[github-react-renderer-url]: https://github.com/fe-lce/lowcode-engine-react/tree/main/packages/react-renderer
+[npm-react-simulator-renderer-url]: http://npmjs.org/package/@felce/lowcode-react-simulator-renderer
+[npm-react-simulator-renderer-image]: https://img.shields.io/npm/v/@felce/lowcode-react-simulator-renderer.svg?style=flat-square
+[github-react-simulator-renderer-url]: https://github.com/fe-lce/lowcode-engine-react/tree/main/packages/react-simulator-renderer
+
+<!-- Vue 系列 -->
+
+[npm-vue-renderer-core-url]: http://npmjs.org/package/@felce/lowcode-vue-renderer-core
+[npm-vue-renderer-core-image]: https://img.shields.io/npm/v/@felce/lowcode-vue-renderer-core.svg?style=flat-square
+[github-vue-renderer-core-url]: https://github.com/fe-lce/lowcode-engine-vue/tree/main/packages/renderer-core
+[npm-vue-renderer-url]: http://npmjs.org/package/@felce/lowcode-vue-renderer
+[npm-vue-renderer-image]: https://img.shields.io/npm/v/@felce/lowcode-vue-renderer.svg?style=flat-square
+[github-vue-renderer-url]: https://github.com/fe-lce/lowcode-engine-vue/tree/main/packages/vue-renderer
+[npm-vue-simulator-renderer-url]: http://npmjs.org/package/@felce/lowcode-vue-simulator-renderer
+[npm-vue-simulator-renderer-image]: https://img.shields.io/npm/v/@felce/lowcode-vue-simulator-renderer.svg?style=flat-square
+[github-vue-simulator-renderer-url]: https://github.com/fe-lce/lowcode-engine-vue/tree/main/packages/vue-simulator-renderer
+
 ## 🔗 相关链接
 
 - [官网首页](https://lowcode-engine.cn/)
@@ -130,47 +172,14 @@ https://cdn.jsdelivr.net/npm/@felce/lowcode-vue-simulator-renderer@1.4.1/dist/js
 
 [awesome-lowcode-engine](https://github.com/lowcode-workspace/awesome-lowcode-engine) 中包含了一系列围绕引擎建设的工具、解决方案等，如果你有类似的解决方案或者工具，欢迎提 PR 到该仓库，让更多人了解到
 
-
-## 🧭 React 系列
-### @felce/lowcode-react-renderer-core
-[![NPM version][npm-react-renderer-core-image]][npm-react-renderer-core-url]
-### @felce/lowcode-react-renderer
-[![NPM version][npm-react-renderer-image]][npm-react-renderer-url]
-### @felce/lowcode-react-simulator-renderer
-[![NPM version][npm-react-renderer-simulator-image]][npm-react-renderer-simulator-url]
-
-[npm-react-renderer-core-url]: http://npmjs.org/package/@felce/lowcode-react-renderer-core
-[npm-react-renderer-core-image]: https://img.shields.io/npm/v/@felce/lowcode-react-renderer-core.svg?style=flat-square
-[npm-react-renderer-url]: http://npmjs.org/package/@felce/lowcode-react-renderer
-[npm-react-renderer-image]: https://img.shields.io/npm/v/@felce/lowcode-react-renderer.svg?style=flat-square
-[npm-react-renderer-simulator-url]: http://npmjs.org/package/@felce/lowcode-react-simulator-renderer
-[npm-react-renderer-simulator-image]: https://img.shields.io/npm/v/@felce/lowcode-react-simulator-renderer.svg?style=flat-square
-
-
-## 🧭 Vue 系列
-### @felce/lowcode-vue-renderer-core
-[![NPM version][npm-vue-renderer-core-image]][npm-vue-renderer-core-url]
-### @felce/lowcode-vue-renderer
-[![NPM version][npm-vue-renderer-image]][npm-vue-renderer-url]
-### @felce/lowcode-vue-simulator-renderer
-[![NPM version][npm-vue-renderer-simulator-image]][npm-vue-renderer-simulator-url]
-
-[npm-vue-renderer-core-url]: http://npmjs.org/package/@felce/lowcode-vue-renderer-core
-[npm-vue-renderer-core-image]: https://img.shields.io/npm/v/@felce/lowcode-vue-renderer-core.svg?style=flat-square
-[npm-vue-renderer-url]: http://npmjs.org/package/@felce/lowcode-vue-renderer
-[npm-vue-renderer-image]: https://img.shields.io/npm/v/@felce/lowcode-vue-renderer.svg?style=flat-square
-[npm-vue-renderer-simulator-url]: http://npmjs.org/package/@felce/lowcode-vue-simulator-renderer
-[npm-vue-renderer-simulator-image]: https://img.shields.io/npm/v/@felce/lowcode-vue-simulator-renderer.svg?style=flat-square
-
-
 ## 💻 本地调试
 
 ```bash
-$ git clone git@github.com:fe-lce/lowcode-engine.git
-$ cd lowcode-engine
-$ npm install
-$ npm run setup
-$ npm start
+git clone git@github.com:fe-lce/lowcode-engine.git
+cd lowcode-engine
+npm install
+npm run setup
+npm start
 ```
 
 > 📢 npm 访问速度较慢，建议使用 cnpm 或者指定镜像 registry。

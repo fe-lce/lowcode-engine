@@ -1,34 +1,17 @@
 {
-  "lerna": "4.0.0",
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "version": "1.4.1",
-  "npmClient": "yarn",
-  "useWorkspaces": true,
-  "packages": [
-    "packages/*"
-  ],
+  "npmClient": "pnpm",
+  "packages": ["packages/*"],
   "command": {
-    "bootstrap": {
-      "npmClientArgs": [
-        "--no-package-lock"
-      ]
-    },
     "version": {
-      "allowBranch": [
-        "master",
-        "main",
-        "release/*",
-        "daily/*",
-        "refactor/*"
-      ]
+      "allowBranch": ["master", "main", "release/*", "daily/*", "refactor/*"]
     },
     "publish": {
-      "npmClient": "npm",
+      "npmClient": "pnpm",
       "verifyRegistry": false,
       "verifyAccess": false,
-      "ignoreChanges": [
-        "**/*.md",
-        "**/test/**"
-      ],
+      "ignoreChanges": ["**/*.md", "**/test/**"],
       "message": "chore(release): publish %v",
       "conventionalCommits": true
     }
