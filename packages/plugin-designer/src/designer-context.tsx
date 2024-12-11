@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { Editor, engineConfig } from '@felce/lowcode-editor-core';
-import { DesignerView, Designer } from '@felce/lowcode-designer';
-import { Asset, getLogger } from '@felce/lowcode-utils';
-import './index.scss';
+import { DesignerView, Designer, DesignerModeType } from '@felce/lowcode-designer';
+import { Asset, getLogger, UtilsMetadata } from '@felce/lowcode-utils';
+import './designer-context.scss';
 import { IPublicModelEngineConfig } from '@felce/lowcode-types';
 
 const logger = getLogger({ level: 'warn', bizName: 'plugin:plugin-designer' });
@@ -13,33 +13,31 @@ export interface PluginProps {
 }
 
 interface DesignerPluginState {
-  utilsMetadata?: any[] | null;
+  utilsMetadata?: UtilsMetadata;
   componentMetadatas?: any[] | null;
   library?: any[] | null;
-  extraEnvironment?: any[] | null;
+  extraEnvironment?: Asset;
   renderEnv?: string;
   device?: string;
   locale?: string;
-  designMode?: string;
+  designMode?: DesignerModeType;
   deviceClassName?: string;
-  simulatorUrl: Asset | null;
+  simulatorUrl?: Asset;
   // @TODO 类型定义
   requestHandlersMap: any;
 }
 
-export default class DesignerPlugin extends PureComponent<PluginProps, DesignerPluginState> {
+export class DesignerPlugin extends PureComponent<PluginProps, DesignerPluginState> {
   static displayName: 'LowcodePluginDesigner';
 
   state: DesignerPluginState = {
     componentMetadatas: null,
     library: null,
-    extraEnvironment: null,
     renderEnv: 'default',
     device: 'default',
     locale: '',
     designMode: 'live',
     deviceClassName: '',
-    simulatorUrl: null,
     requestHandlersMap: null,
   };
 

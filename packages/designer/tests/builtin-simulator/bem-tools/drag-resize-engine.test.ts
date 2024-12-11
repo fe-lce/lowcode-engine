@@ -38,15 +38,15 @@ describe('DragResizeEngine 测试', () => {
   });
 
   it('from', () => {
-    const resizeStartMockFn = jest.fn();
-    const resizeMockFn = jest.fn();
-    const resizeEndMockFn = jest.fn();
+    const resizeStartMockFn = vi.fn();
+    const resizeMockFn = vi.fn();
+    const resizeEndMockFn = vi.fn();
 
     const offResizeStart = resizeEngine.onResizeStart(resizeStartMockFn);
     const offResize = resizeEngine.onResize(resizeMockFn);
     const offResizeEnd = resizeEngine.onResizeEnd(resizeEndMockFn);
     const boostedNode = doc.getNode('node_k1ow3cbn');
-    const mockBoostFn = jest.fn((e) => {
+    const mockBoostFn = vi.fn((e) => {
       return boostedNode;
     });
 
@@ -113,7 +113,7 @@ describe('DragResizeEngine 测试', () => {
       contentDocument: document,
     });
 
-    const mockBoostFn = jest.fn((e) => {
+    const mockBoostFn = vi.fn((e) => {
       return doc.getNode('node_k1ow3cbn');
     });
 

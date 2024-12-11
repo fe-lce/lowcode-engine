@@ -4,7 +4,7 @@ const execa = require('execa');
 
 async function start() {
   const [, , pkgName = '@felce/lowcode-ignitor'] = process.argv;
-  await execa.command(`lerna exec --scope ${pkgName} -- npm start`, {
+  await execa.command(`lerna exec --scope ${pkgName} -- pnpm build:watch`, {
     stdio: 'inherit',
     encoding: 'utf-8',
   });

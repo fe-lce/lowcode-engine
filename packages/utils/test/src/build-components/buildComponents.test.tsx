@@ -22,11 +22,11 @@ ButtonGroup.displayName = "ButtonGroup";
 ButtonGroup.prototype.isReactComponent = true;
 Button.prototype.isReactComponent = true;
 
-jest.mock('../../../src/is-react', () => {
-  const original = jest.requireActual('../../../src/is-react');
+vi.mock('../../../src/is-react', async (importOriginal) => {
+  const original: any = await importOriginal();
   return {
     ...original,
-    wrapReactClass(view) {
+    wrapReactClass(view: any) {
       return view;
     }
   }

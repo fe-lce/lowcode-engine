@@ -1,6 +1,6 @@
-import { ISkeleton } from '@felce/lowcode-editor-skeleton';
 import { ReactNode } from 'react';
 import { IPublicTypeWidgetBaseConfig } from '../type';
+import { IPublicApiSkeleton } from '../api';
 
 export interface IPublicModelWidget {
   readonly name: string;
@@ -10,7 +10,7 @@ export interface IPublicModelWidget {
   readonly visible: boolean;
   readonly disabled?: boolean;
   readonly body: ReactNode;
-  readonly skeleton: ISkeleton;
+  readonly skeleton: IPublicApiSkeleton;
   readonly config: IPublicTypeWidgetBaseConfig;
 
   getName(): string;

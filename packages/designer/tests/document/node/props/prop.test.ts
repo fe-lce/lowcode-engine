@@ -6,8 +6,8 @@ import { Prop, isProp, isValidArrayIndex } from '../../../../src/document/node/p
 import { GlobalEvent, IPublicEnumTransformStage } from '@felce/lowcode-types';
 import { shellModelFactory } from '../../../../../engine/src/modules/shell-model-factory';
 
-const slotNodeImportMockFn = jest.fn();
-const slotNodeRemoveMockFn = jest.fn();
+const slotNodeImportMockFn = vi.fn();
+const slotNodeRemoveMockFn = vi.fn();
 const mockOwner = {
   componentName: 'Div',
   addSlot() {},
@@ -27,13 +27,13 @@ const mockOwner = {
     designer: {
       editor: {
         eventBus: {
-          emit: jest.fn(),
+          emit: vi.fn(),
         },
       },
     },
   },
   isInited: true,
-  emitPropChange: jest.fn(),
+  emitPropChange: vi.fn(),
   delete() {},
 };
 
@@ -226,7 +226,7 @@ describe('Prop 类测试', () => {
     });
 
     it('迭代器 / map / forEach', () => {
-      const mockFn = jest.fn();
+      const mockFn = vi.fn();
       for (const item of strProp) {
         mockFn();
       }
@@ -364,7 +364,7 @@ describe('Prop 类测试', () => {
       });
 
       it('迭代器 / map / forEach', () => {
-        const mockFn = jest.fn();
+        const mockFn = vi.fn();
         for (const item of prop) {
           mockFn();
         }
@@ -449,7 +449,7 @@ describe('Prop 类测试', () => {
 
       it('迭代器 / map / forEach', () => {
         const listProp = new Prop(mockPropsInst, [1, 2]);
-        const mockFn = jest.fn();
+        const mockFn = vi.fn();
         for (const item of listProp) {
           mockFn();
         }
@@ -471,7 +471,7 @@ describe('Prop 类测试', () => {
     });
   });
 
-  describe('slotNode / setAsSlot', () => {
+  it('slotNode / setAsSlot', () => {
     const editor = new Editor();
     const designer = new Designer({ editor, shellModelFactory });
     const doc = new DocumentModel(designer.project, {
@@ -494,7 +494,9 @@ describe('Prop 类测试', () => {
       ],
     });
 
-    expect(slotProp.slotNode?.componentName).toBe('Slot');
+    const slotComponentName = slotProp.slotNode?.componentName
+    expect(slotComponentName).toEqual('Slot');
+
 
     // TODO: id 总是变，不好断言
     expect(slotProp.code.includes('Button')).toBeTruthy();
@@ -511,7 +513,7 @@ describe('Prop 类测试', () => {
     slotProp.dispose();
   });
 
-  describe('slotNode-value / setAsSlot', () => {
+  it('slotNode-value / setAsSlot', () => {
     const editor = new Editor();
     const designer = new Designer({ editor, shellModelFactory });
     const doc = new DocumentModel(designer.project, {
@@ -590,26 +592,26 @@ describe('setValue with event', () => {
     propInstance = new Prop(mockPropsInst, true, 'stringProp');
 
     // Mock necessary methods and properties
-    mockEmitChange = jest.spyOn(propInstance, 'emitChange');
+    mockEmitChange = vi.spyOn(propInstance, 'emitChange');
     propInstance.owner = {
       document: {
         designer: {
           editor: {
             eventBus: {
-              emit: jest.fn(),
+              emit: vi.fn(),
             },
           },
         },
       },
-      emitPropChange: jest.fn(),
+      emitPropChange: vi.fn(),
       delete() {},
     };
-    mockEventBusEmit = jest.spyOn(propInstance.owner.document.designer.editor.eventBus, 'emit');
-    mockEmitPropChange = jest.spyOn(propInstance.owner, 'emitPropChange');
+    mockEventBusEmit = vi.spyOn(propInstance.owner.document.designer.editor.eventBus, 'emit');
+    mockEmitPropChange = vi.spyOn(propInstance.owner, 'emitPropChange');
   });
 
   afterEach(() => {
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
 
   it('should correctly handle string values and emit changes', () => {

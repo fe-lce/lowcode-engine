@@ -14,7 +14,7 @@ import pageMetadata from '../fixtures/component-metadata/page';
 import { Designer } from '../../src/designer/designer';
 import { DocumentModel } from '../../src/document/document-model';
 import formSchema from '../fixtures/schema/form';
-import { getMockDocument, getMockWindow, getMockEvent, delayObxTick } from '../utils';
+import { getMockDocument, getMockWindow, getMockEvent } from '../utils';
 import { BuiltinSimulatorHost } from '../../src/builtin-simulator/host';
 import { fireEvent } from '@testing-library/react';
 import { shellModelFactory } from '../../../engine/src/modules/shell-model-factory';
@@ -132,7 +132,7 @@ describe('Host 测试', () => {
     });
 
     it('connect', () => {
-      const mockFn = jest.fn();
+      const mockFn = vi.fn();
       const mockRenderer = { isSimulatorRenderer: true };
       host.connect(mockRenderer, mockFn);
       expect(host.renderer).toEqual(mockRenderer);
@@ -157,7 +157,7 @@ describe('Host 测试', () => {
     });
 
     it('autorun', () => {
-      const mockFn = jest.fn();
+      const mockFn = vi.fn();
       host.autorun(mockFn);
       expect(mockFn).toHaveBeenCalled();
     });
@@ -246,7 +246,7 @@ describe('Host 测试', () => {
     });
 
     it('getClosestNodeInstance', () => {
-      const mockFn = jest.fn(() => {
+      const mockFn = vi.fn(() => {
         return {
           node: {},
           nodeId: 'id',
@@ -322,10 +322,10 @@ describe('Host 测试', () => {
     });
 
     it('setNativeSelection / setDraggingState / setCopyState / clearState', () => {
-      const mockFn1 = jest.fn();
-      const mockFn2 = jest.fn();
-      const mockFn3 = jest.fn();
-      const mockFn4 = jest.fn();
+      const mockFn1 = vi.fn();
+      const mockFn2 = vi.fn();
+      const mockFn3 = vi.fn();
+      const mockFn4 = vi.fn();
       host.connect(
         {
           setNativeSelection: mockFn1,
@@ -467,7 +467,7 @@ describe('Host 测试', () => {
           },
         };
       };
-      const mockFn = jest.fn();
+      const mockFn = vi.fn();
       host.designer.editor.on('designer.builtinSimulator.contextmenu', mockFn);
       fireEvent.contextMenu(document, {});
       // TODO:

@@ -1,4 +1,4 @@
-import { ReactElement, ComponentType } from 'react';
+import { ReactElement, ComponentType, ReactNode } from 'react';
 import { IPublicTypeI18nData, IPublicTypeIconType, IPublicTypeTitleContent, IPublicTypeWidgetConfigArea, TipContent } from './';
 
 export type IPublicTypeHelpTipConfig = string | { url?: string; content?: string | ReactElement };
@@ -6,7 +6,7 @@ export type IPublicTypeHelpTipConfig = string | { url?: string; content?: string
 export interface IPublicTypePanelConfigProps extends IPublicTypePanelDockPanelProps {
   title?: IPublicTypeTitleContent;
   icon?: any; // 冗余字段
-  description?: string | IPublicTypeI18nData;
+  description?: string | IPublicTypeI18nData | ReactNode;
   help?: IPublicTypeHelpTipConfig; // 显示问号帮助
   hiddenWhenInit?: boolean; //  when this is true, by default will be hidden
   condition?: (widget: any) => any;

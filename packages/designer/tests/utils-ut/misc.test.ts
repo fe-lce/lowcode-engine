@@ -158,7 +158,7 @@ it('makeEventsHandler', () => {
   // no contentDocument
   const sensor2 = {};
   const bind = makeEventsHandler({ view: { document } } as any, [sensor, sensor2]);
-  const fn = jest.fn();
+  const fn = vi.fn();
   bind((doc) => fn(doc));
   expect(fn).toHaveBeenCalledTimes(1);
 });

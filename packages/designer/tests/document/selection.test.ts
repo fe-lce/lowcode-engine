@@ -7,10 +7,10 @@ import { Designer } from '../../src/designer/designer';
 import formSchema from '../fixtures/schema/form';
 import { getIdsFromSchema, getNodeFromSchemaById } from '../utils';
 
-const mockCreateSettingEntry = jest.fn();
-jest.mock('../../src/designer/designer', () => {
+const mockCreateSettingEntry = vi.fn();
+vi.mock('../../src/designer/designer', () => {
   return {
-    Designer: jest.fn().mockImplementation(() => {
+    Designer: vi.fn().mockImplementation(() => {
       return {
         getComponentMeta() {
           return {
@@ -46,7 +46,7 @@ describe('选择区测试', () => {
     expect(project).toBeTruthy();
     const { currentDocument } = project;
     const { nodesMap, selection } = currentDocument!;
-    const selectionChangeHandler = jest.fn();
+    const selectionChangeHandler = vi.fn();
     selection.onSelectionChange(selectionChangeHandler);
 
     selection.select('form');
@@ -100,7 +100,7 @@ describe('选择区测试', () => {
     expect(project).toBeTruthy();
     const { currentDocument } = project;
     const { nodesMap, selection } = currentDocument!;
-    const selectionChangeHandler = jest.fn();
+    const selectionChangeHandler = vi.fn();
     selection.onSelectionChange(selectionChangeHandler);
 
     selection.add('form');
@@ -151,7 +151,7 @@ describe('选择区测试', () => {
 
     selection.selectAll(['form', 'node_k1ow3cbj']);
 
-    const selectionChangeHandler = jest.fn();
+    const selectionChangeHandler = vi.fn();
     selection.onSelectionChange(selectionChangeHandler);
     selection.dispose();
 
@@ -168,7 +168,7 @@ describe('选择区测试', () => {
     expect(project).toBeTruthy();
     const { currentDocument } = project;
     const { nodesMap, selection } = currentDocument!;
-    const selectionChangeHandler = jest.fn();
+    const selectionChangeHandler = vi.fn();
     selection.onSelectionChange(selectionChangeHandler);
 
     selection.select('form');
@@ -198,7 +198,7 @@ describe('选择区测试', () => {
     expect(project).toBeTruthy();
     const { currentDocument } = project;
     const { nodesMap, selection } = currentDocument!;
-    const selectionChangeHandler = jest.fn();
+    const selectionChangeHandler = vi.fn();
     selection.onSelectionChange(selectionChangeHandler);
 
     selection.select('page');
@@ -221,7 +221,7 @@ describe('选择区测试', () => {
     expect(project).toBeTruthy();
     const { currentDocument } = project;
     const { nodesMap, selection } = currentDocument!;
-    const selectionChangeHandler = jest.fn();
+    const selectionChangeHandler = vi.fn();
     const dispose = selection.onSelectionChange(selectionChangeHandler);
 
     selection.select('form');

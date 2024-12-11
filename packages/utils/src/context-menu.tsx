@@ -6,7 +6,7 @@ import {
   IPublicTypeContextMenuAction,
   IPublicTypeContextMenuItem,
 } from '@felce/lowcode-types';
-import { Logger } from '@felce/lowcode-utils';
+import { Logger } from './logger';
 import classNames from 'classnames';
 import React from 'react';
 import './context-menu.scss';
@@ -88,7 +88,7 @@ export function parseContextMenuAsReactNode(
               disabled: menu.disabled,
             })}
             key={menu.name}
-            label={<div className="engine-context-menu-text">{intl(menu.title)}</div>}
+            label={<div className="engine-context-menu-text">{menu.title && intl(menu.title)}</div>}
           >
             <Menu className="next-context engine-context-menu">
               {parseContextMenuAsReactNode(menu.items, options)}

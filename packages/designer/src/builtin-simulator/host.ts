@@ -83,10 +83,12 @@ export interface DeviceStyleProps {
   viewport?: object;
 }
 
+export type DesignerModeType = 'live' | 'design' | 'preview' | 'extend' | 'border'
+
 export interface BuiltinSimulatorProps {
   // 从 documentModel 上获取
   // suspended?: boolean;
-  designMode?: 'live' | 'design' | 'preview' | 'extend' | 'border';
+  designMode?: DesignerModeType;
   device?: 'mobile' | 'iphone' | string;
   deviceClassName?: string;
   environment?: Asset;

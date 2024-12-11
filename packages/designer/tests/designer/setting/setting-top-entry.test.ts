@@ -79,7 +79,7 @@ describe('setting-top-entry 测试', () => {
       const divNode = currentDocument?.getNode('div') as Node;
 
       const { settingEntry } = divNode!;
-      const mockFn = jest.fn();
+      const mockFn = vi.fn();
       settingEntry.componentMeta.onMetadataChange(mockFn);
       settingEntry.componentMeta.refreshMetadata();
       expect(mockFn).toHaveBeenCalled();

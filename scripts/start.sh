@@ -6,4 +6,4 @@ if [ "$1" ]; then
   pkgName="$1"
 fi
 
-lerna exec --scope $pkgName -- npm start
+lerna exec --scope $pkgName -- pnpm build:watch

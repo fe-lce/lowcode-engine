@@ -239,7 +239,7 @@ describe('isFromVC', () => {
 describe('executePendingFn', () => {
   it('should execute the provided function after the specified timeout', async () => {
     // Mock the function to execute
-    const fn = jest.fn();
+    const fn = vi.fn();
 
     // Call executePendingFn with the mocked function and a short timeout
     executePendingFn(fn, 100);
@@ -256,7 +256,7 @@ describe('executePendingFn', () => {
 
   it('should execute the provided function with a default timeout if not specified', async () => {
     // Mock the function to execute
-    const fn = jest.fn();
+    const fn = vi.fn();
 
     // Call executePendingFn with the mocked function without specifying a timeout
     executePendingFn(fn);
@@ -279,7 +279,7 @@ describe('compatStage', () => {
   });
 
   it('should warn about the deprecated usage', () => {
-    const warnSpy = jest.spyOn(console, 'warn');
+    const warnSpy = vi.spyOn(console, 'warn');
     const result = compatStage(2);
     expect(result).toBe('serilize');
     expect(warnSpy).toHaveBeenCalledWith(

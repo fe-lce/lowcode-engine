@@ -165,7 +165,7 @@ describe.only('Project 方法测试', () => {
   });
 
   it('onCurrentDocumentChange', () => {
-    const mockFn = jest.fn();
+    const mockFn = vi.fn();
     const off = project.onCurrentDocumentChange(mockFn);
 
     project.open({
@@ -183,7 +183,7 @@ describe.only('Project 方法测试', () => {
   });
 
   it('setRendererReady / onRendererReady', () => {
-    const mockFn = jest.fn();
+    const mockFn = vi.fn();
     const off = project.onRendererReady(mockFn);
     project.setRendererReady({ a: 1 });
     expect(mockFn).toHaveBeenCalledWith({ a: 1 });

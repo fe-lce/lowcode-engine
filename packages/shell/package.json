@@ -2,14 +2,13 @@
   "name": "@felce/lowcode-shell",
   "version": "1.4.1",
   "description": "Shell Layer for AliLowCodeEngine",
-  "main": "lib/index.js",
-  "module": "es/index.js",
   "files": [
-    "lib",
-    "es"
+    "dist"
   ],
+  "main": "src/index.ts",
+  "module": "src/index.ts",
   "scripts": {
-    "build": "build-scripts build"
+    "build": "vite build"
   },
   "license": "MIT",
   "dependencies": {
@@ -27,23 +26,28 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@alib/build-scripts": "^0.1.29",
     "@testing-library/react": "^11.2.2",
     "@types/classnames": "^2.2.7",
     "@types/jest": "^29",
     "@types/lodash": "^4.14.165",
     "@types/medium-editor": "^5.0.3",
     "@types/node": "^18",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
     "jest": "^29.7.0",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "vite": "^6.0.1",
+    "vite-plugin-dts": "^4.3.0",
+    "@vitejs/plugin-react-swc": "3.7.1",
+    "vitest": "2.1.6"
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "main": "dist/index.umd.js",
+    "module": "dist/index.es.js"
   },
   "repository": {
     "type": "http",

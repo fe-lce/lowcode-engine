@@ -201,7 +201,7 @@ describe('setting-field 测试', () => {
       const settingEntry = mockNode.settingEntry as SettingTopEntry;
       const field = settingEntry.get('behavior');
 
-      const mockFn = jest.fn();
+      const mockFn = vi.fn();
 
       field.onEffect(mockFn);
 
@@ -223,9 +223,9 @@ describe('setting-field 测试', () => {
         name: 'objSub',
         title: 'objSub',
       });
-      const mockFnArrField = jest.fn();
-      const mockFnSubArrField = jest.fn();
-      const mockFnObjSubField = jest.fn();
+      const mockFnArrField = vi.fn();
+      const mockFnSubArrField = vi.fn();
+      const mockFnObjSubField = vi.fn();
 
       arrField.setValue([{ objSub: 'subMock0.Index.0' }]);
       // 这里需要 setValue 两遍，触发 prop 的 purge 方法，使 purged 为 true，之后的 purge 方法不会正常执行，prop 才能正常缓存，autorun 才能正常执行

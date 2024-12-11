@@ -19,7 +19,7 @@ import {
   IPublicTypeNodeData,
   IPublicTypeNodeSchema,
   IPublicTypeOnChangeOptions,
-} from '@felce/lowcode-types';
+} from '../type';
 
 export interface IPublicModelDocumentModel<
   Selection = IPublicModelSelection,

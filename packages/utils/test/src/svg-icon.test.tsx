@@ -4,7 +4,9 @@ import { SVGIcon, IconProps } from '../../src/svg-icon';
 
 describe('SVGIcon', () => {
   it('should render SVG element with correct size', () => {
-    const iconProps: IconProps = {
+    const iconProps: IconProps & {
+      viewBox: string;
+    } = {
       size: 'small',
       viewBox: '0 0 24 24',
     };
@@ -12,13 +14,16 @@ describe('SVGIcon', () => {
     const { container } = render(<SVGIcon {...iconProps} />);
 
     const svgElement = container.querySelector('svg');
+    console.log(svgElement)
 
-    expect(svgElement).toHaveAttribute('width', '12');
-    expect(svgElement).toHaveAttribute('height', '12');
+    expect(svgElement?.getAttribute('width')).toEqual('12');
+    expect(svgElement?.getAttribute('height')).toEqual('12');
   });
 
   it('should render SVG element with custom size', () => {
-    const iconProps: IconProps = {
+    const iconProps: IconProps & {
+      viewBox: string;
+    } = {
       size: 24,
       viewBox: '0 0 24 24',
     };
@@ -27,8 +32,8 @@ describe('SVGIcon', () => {
 
     const svgElement = container.querySelector('svg');
 
-    expect(svgElement).toHaveAttribute('width', '24');
-    expect(svgElement).toHaveAttribute('height', '24');
+    expect(svgElement?.getAttribute('width')).toEqual('24');
+    expect(svgElement?.getAttribute('height')).toEqual('24');
   });
 
   // Add more tests for other scenarios if needed

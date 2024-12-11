@@ -6,6 +6,7 @@ const execa = require('execa');
 
 async function deleteRootDirLockFile() {
     await del('package-lock.json');
+    await del('pnpm-lock.json');
     await del('yarn.lock');
 }
 
@@ -18,7 +19,7 @@ async function deletePackagesDirLockFile() {
 }
 
 async function bootstrap() {
-    await execa.command('lerna bootstrap --force-local', { stdio: 'inherit', encoding: 'utf-8' });
+    await execa.command('pnpm i', { stdio: 'inherit', encoding: 'utf-8' });
 }
 
 const setup = gulp.series(deleteRootDirLockFile, clean, deletePackagesDirLockFile, bootstrap);

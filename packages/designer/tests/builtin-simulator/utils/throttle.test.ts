@@ -3,7 +3,7 @@ import { throttle } from '../../../src/builtin-simulator/utils/throttle';
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-const cb = jest.fn();
+const cb = vi.fn();
 
 describe('throttle', () => {
   it('simple', async () => {

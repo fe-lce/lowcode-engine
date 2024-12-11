@@ -91,7 +91,7 @@ describe('setting-prop-entry 测试', () => {
       prop1.setValue('bbb');
       expect(prop1.getValue()).toBe('prefix modified bbb');
 
-      const mockFn3 = jest.fn();
+      const mockFn3 = vi.fn();
       const prop2 = mockTopEntry.getProp('obj');
       const prop3 = prop2.get('x');
       const offFn = prop3.onValueChange(mockFn3);
@@ -118,7 +118,7 @@ describe('setting-prop-entry 测试', () => {
       prop1.clearValue();
       expect(prop1.getValue()).toBeUndefined();
 
-      const mockFn = jest.fn();
+      const mockFn = vi.fn();
       prop1.extraProps = {
         setValue: mockFn,
       };

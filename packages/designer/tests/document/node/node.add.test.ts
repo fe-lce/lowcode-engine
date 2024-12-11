@@ -7,10 +7,10 @@ import { Designer } from '../../../src/designer/designer';
 import formSchema from '../../fixtures/schema/form';
 import { getIdsFromSchema, getNodeFromSchemaById } from '../../utils';
 
-const mockCreateSettingEntry = jest.fn();
-jest.mock('../../../src/designer/designer', () => {
+const mockCreateSettingEntry = vi.fn();
+vi.mock('../../../src/designer/designer', () => {
   return {
-    Designer: jest.fn().mockImplementation(() => {
+    Designer: vi.fn().mockImplementation(() => {
       return {
         getComponentMeta() {
           return {
@@ -166,7 +166,7 @@ describe('schema 生成节点模型测试', () => {
       const createNode = currentDocument?.createNode.bind(currentDocument);
 
       const pageNode = getNode?.('page');
-      const nodeCreateHandler = jest.fn();
+      const nodeCreateHandler = vi.fn();
       const offCreate = currentDocument?.onNodeCreate(nodeCreateHandler);
 
       const node = createNode?.({
@@ -182,7 +182,7 @@ describe('schema 生成节点模型测试', () => {
       expect(nodeCreateHandler.mock.calls[0][0].componentName).toBe('TextInput');
       expect(nodeCreateHandler.mock.calls[0][0].getPropValue('propA')).toBe('haha');
 
-      const nodeDestroyHandler = jest.fn();
+      const nodeDestroyHandler = vi.fn();
       const offDestroy = currentDocument?.onNodeDestroy(nodeDestroyHandler);
       node?.remove();
       expect(nodeDestroyHandler).toHaveBeenCalledTimes(1);

@@ -35,7 +35,8 @@
     "paths": {
       "@felce/lowcode-*": ["./*/src"]
     },
-    "outDir": "lib"
+    "types": ["vitest/globals", "vitest/jsdom"],
+    "outDir": "dist"
   },
   "exclude": ["**/tests/*", "**/*.test.ts", "**/lib", "**/es", "node_modules"]
 }

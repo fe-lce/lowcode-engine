@@ -11,9 +11,8 @@
     ]
   },
   "scripts": {
-    "build": "./scripts/build.sh",
+    "build": "sh ./scripts/build.sh",
     "build:npm": "lerna run build --stream",
-    "build:umd": "lerna run build:umd --stream",
     "clean": "rimraf ./packages/*/lib ./packages/*/es ./packages/*/dist ./packages/*/build",
     "clean:lib": "rimraf ./node_modules",
     "lint": "f2elint scan -q -i ./packages/*/src",
@@ -28,14 +27,10 @@
     "pub:prepatch": "npm run watchdog:build && lerna publish prepatch --force-publish --exact --dist-tag beta --preid beta --no-changelog",
     "pub:prerelease": "npm run watchdog:build && lerna publish prerelease --yes --force-publish --exact --dist-tag beta --preid beta --no-changelog",
     "setup": "node ./scripts/setup.js",
-    "setup:test": "./scripts/setup-for-test.sh",
-    "setup:skip-build": "./scripts/setup-skip-build.sh",
     "start": "node ./scripts/start.js",
-    "test": "lerna run test --stream",
-    "test:snapshot": "lerna run test:snapshot",
-    "watchdog:build": "node ./scripts/watchdog.js",
-    "sync": "./scripts/sync.sh",
-    "syncOss": "node ./scripts/sync-oss.js"
+    "test:ui": "vitest --ui",
+    "test:cov": "vitest run --coverage",
+    "watchdog:build": "node ./scripts/watchdog.js"
   },
   "husky": {
     "hooks": {
@@ -44,19 +39,22 @@
     }
   },
   "devDependencies": {
-    "@alilc/build-plugin-lce": "^0.0.5",
-    "@alilc/lowcode-test-mate": "^1.0.1",
-    "@babel/plugin-proposal-decorators": "^7.24.7",
-    "@types/react-router": "5.1.18",
-    "babel-jest": "^29",
     "del": "^6.1.1",
     "execa": "^5.1.1",
     "f2elint": "^4.8.0",
     "gulp": "^4.0.2",
     "husky": "^7.0.4",
     "lerna": "^8.1.9",
-    "rimraf": "^3.0.2",
-    "typescript": "5.6.3"
+    "rimraf": "^6.0.1",
+    "typescript": "5.6.3",
+    "@vitest/ui": "^2.1.8",
+    "jsdom": "^25.0.1",
+    "@testing-library/react": "16.1.0",
+    "@testing-library/dom": "^10.4.0",
+    "vite": "^6.0.1",
+    "vite-plugin-dts": "^4.3.0",
+    "@vitejs/plugin-react-swc": "3.7.1",
+    "vitest": "^2.1.8"
   },
   "resolutions": {
     "typescript": "5.6.3",

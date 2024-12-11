@@ -43,7 +43,7 @@ describe('ModalNodesManager 方法测试', () => {
     const mgr = doc.modalNodesManager;
     const nodes = mgr.getModalNodes();
 
-    const mockFn = jest.fn();
+    const mockFn = vi.fn();
     const off = mgr.onVisibleChange(mockFn);
 
     mgr.setVisible(nodes[0]);
@@ -59,8 +59,8 @@ describe('ModalNodesManager 方法测试', () => {
     const mgr = doc.modalNodesManager!;
     const nodes = mgr.getModalNodes();
 
-    const nodesMockFn = jest.fn();
-    const visibleMockFn = jest.fn();
+    const nodesMockFn = vi.fn();
+    const visibleMockFn = vi.fn();
     const off = mgr.onModalNodesChange(nodesMockFn);
     const offVisible = mgr.onVisibleChange(visibleMockFn);
 

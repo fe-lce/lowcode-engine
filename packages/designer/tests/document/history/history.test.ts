@@ -44,8 +44,8 @@ describe('History', () => {
   });
 
   it('data function & records', async () => {
-    const mockRedoFn = jest.fn();
-    const mockDataFn = jest.fn();
+    const mockRedoFn = vi.fn();
+    const mockDataFn = vi.fn();
     const history = new History<Node>(() => {
       const data = tree.toObject();
       mockDataFn(data);
@@ -118,9 +118,9 @@ describe('History', () => {
   });
 
   it('go & forward & back & onCursor', async () => {
-    const mockRedoFn = jest.fn();
-    const mockCursorFn = jest.fn();
-    const mockStateFn = jest.fn();
+    const mockRedoFn = vi.fn();
+    const mockCursorFn = vi.fn();
+    const mockStateFn = vi.fn();
     const history = new History<Node>(
       () => {
         const data = tree.toObject();
@@ -211,9 +211,9 @@ describe('History', () => {
   });
 
   it('go() - edge case of cursor', async () => {
-    const mockRedoFn = jest.fn();
-    const mockCursorFn = jest.fn();
-    const mockStateFn = jest.fn();
+    const mockRedoFn = vi.fn();
+    const mockCursorFn = vi.fn();
+    const mockStateFn = vi.fn();
     const history = new History<Node>(
       () => {
         const data = tree.toObject();
@@ -256,7 +256,7 @@ describe('History', () => {
   });
 
   it('sleep & wakeup', async () => {
-    const mockRedoFn = jest.fn();
+    const mockRedoFn = vi.fn();
     const history = new History<Node>(
       () => {
         const data = tree.toObject();

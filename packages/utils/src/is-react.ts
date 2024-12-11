@@ -1,4 +1,4 @@
-import { ComponentClass, Component, FunctionComponent, ComponentType, createElement } from 'react';
+import { ComponentClass, Component, FunctionComponent, ComponentType, createElement, ReactNode } from 'react';
 import { cloneEnumerableProperty } from './clone-enumerable-property';
 
 const hasSymbol = typeof Symbol === 'function' && Symbol.for;
@@ -61,7 +61,7 @@ export function isReactComponent(obj: any): obj is ComponentType<any> {
 }
 
 export function wrapReactClass(view: FunctionComponent) {
-  let ViewComponentClass = class extends Component {
+  let ViewComponentClass = class extends Component<{children: ReactNode}> {
     render() {
       const { children, ...other } = this.props;
       return createElement(view, other, children);

@@ -14,8 +14,8 @@ interface MockDocument extends Document {
 
 
 const eventsMap : Map<string, Set<Function>> = new Map<string, Set<Function>>();
-const mockRemoveAttribute = jest.fn();
-const mockAddEventListener = jest.fn((eventName: string, cb) => {
+const mockRemoveAttribute = vi.fn();
+const mockAddEventListener = vi.fn((eventName: string, cb) => {
   if (!eventsMap.has(eventName)) {
     eventsMap.set(eventName, new Set([cb]));
     return;
@@ -23,7 +23,7 @@ const mockAddEventListener = jest.fn((eventName: string, cb) => {
   eventsMap.get(eventName)!.add(cb);
 });
 
-const mockRemoveEventListener = jest.fn((eventName: string, cb) => {
+const mockRemoveEventListener = vi.fn((eventName: string, cb) => {
   if (!eventsMap.has(eventName)) return;
   if (!cb) {
     eventsMap.delete(eventName);
@@ -32,14 +32,14 @@ const mockRemoveEventListener = jest.fn((eventName: string, cb) => {
   eventsMap.get(eventName)?.delete(cb);
 });
 
-const mockTriggerEventListener = jest.fn((eventName: string, data: any, context: object = {}) => {
+const mockTriggerEventListener = vi.fn((eventName: string, data: any, context: object = {}) => {
   if (!eventsMap.has(eventName)) return;
   for (const cb of eventsMap.get(eventName)) {
     cb.call(context, data);
   }
 });
 
-const mockCreateElement = jest.fn((tagName) => {
+const mockCreateElement = vi.fn((tagName) => {
   return {
     style: {},
     appendChild() {},

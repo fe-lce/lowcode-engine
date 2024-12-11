@@ -2,19 +2,15 @@
   "name": "@felce/lowcode-engine",
   "version": "1.4.1",
   "description": "An enterprise-class low-code technology stack with scale-out design / 一套面向扩展设计的企业级低代码技术体系",
-  "main": "lib/engine-core.js",
-  "module": "es/engine-core.js",
   "files": [
-    "dist",
-    "es",
-    "lib"
+    "dist"
   ],
+  "main": "src/index.tsx",
+  "module": "src/index.tsx",
   "scripts": {
-    "start": "build-scripts start",
-    "version:update": "node ./scripts/version.js",
-    "build": "build-scripts build",
-    "build:umd": "build-scripts build --config build.umd.json",
-    "test": "build-scripts test --config build.test.json --jest-passWithNoTests"
+    "preview": "vite preview",
+    "build": "vite build",
+    "build:watch": "vite build --watch"
   },
   "license": "MIT",
   "dependencies": {
@@ -37,8 +33,8 @@
     "@alifd/theme-lowcode-dark": "^0.2.0",
     "@alifd/theme-lowcode-light": "^0.2.0",
     "@types/domready": "^1.0.0",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
     "build-plugin-fusion": "0.1.17-beta.0",
     "build-plugin-moment-locales": "^0.1.0",
     "build-plugin-react-app": "^1.8.0",
@@ -48,7 +44,9 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "main": "dist/engine-core.umd.js",
+    "module": "dist/engine-core.es.js"
   },
   "repository": {
     "type": "http",

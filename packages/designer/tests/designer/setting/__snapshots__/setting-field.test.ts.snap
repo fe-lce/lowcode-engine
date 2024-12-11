@@ -1,4 +1,82 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`setting-field 测试 > 纯粹的 UnitTest > 常规方法 1`] = `
+{
+  "extraProps": {
+    "defaultValue": "NORMAL",
+    "display": "inline",
+  },
+  "name": "behavior",
+  "setter": {
+    "componentName": "MixedSetter",
+    "props": {
+      "setters": [
+        {
+          "_owner": null,
+          "key": null,
+          "props": {
+            "cancelable": false,
+            "loose": false,
+            "options": [
+              {
+                "title": "普通",
+                "value": "NORMAL",
+              },
+              {
+                "title": "隐藏",
+                "value": "HIDDEN",
+              },
+            ],
+          },
+          "ref": null,
+        },
+        "VariableSetter",
+      ],
+    },
+  },
+  "title": "默认状态",
+  "type": "field",
+}
+`;
+
+exports[`setting-field 测试 > 纯粹的 UnitTest > 常规方法 2`] = `
+{
+  "extraProps": {
+    "defaultValue": "NORMAL",
+    "display": "inline",
+  },
+  "name": "behavior",
+  "setter": {
+    "componentName": "MixedSetter",
+    "props": {
+      "setters": [
+        {
+          "_owner": null,
+          "key": null,
+          "props": {
+            "cancelable": false,
+            "loose": false,
+            "options": [
+              {
+                "title": "普通",
+                "value": "NORMAL",
+              },
+              {
+                "title": "隐藏",
+                "value": "HIDDEN",
+              },
+            ],
+          },
+          "ref": null,
+        },
+        "VariableSetter",
+      ],
+    },
+  },
+  "title": "默认状态",
+  "type": "field",
+}
+`;
 
 exports[`setting-field 测试 纯粹的 UnitTest 常规方法 1`] = `
 Object {

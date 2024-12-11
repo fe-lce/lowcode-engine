@@ -4,7 +4,7 @@ import { delayObxTick, delay } from '../utils';
 it('ResourceConsumer 测试，先消费再监听', async () => {
   const con = new ResourceConsumer(() => ({ a: 1, b: 2 }));
 
-  const mockFn = jest.fn();
+  const mockFn = vi.fn();
   con.consume((data) => {
     mockFn(data);
   });
@@ -20,7 +20,7 @@ it('ResourceConsumer 测试，先消费再监听', async () => {
 });
 
 it('ResourceConsumer 测试，先消费再监听，isSimulatorRenderer', async () => {
-  const mockFn = jest.fn();
+  const mockFn = vi.fn();
   const con = new ResourceConsumer(() => ({ a: 1, b: 2 }), () => {
     const o = { a: 3, b: 4 };
     mockFn(o);
@@ -38,7 +38,7 @@ it('ResourceConsumer 测试，先消费再监听，isSimulatorRenderer', async (
 });
 
 it('ResourceConsumer 测试，先消费再监听，isSimulatorRenderer，没有 consume', async () => {
-  const mockFn = jest.fn();
+  const mockFn = vi.fn();
   const con = new ResourceConsumer(() => ({ a: 1, b: 2 }));
 
   con.consume({ isSimulatorRenderer: true });
@@ -49,7 +49,7 @@ it('ResourceConsumer 测试，先监听再消费', async () => {
 
   con.waitFirstConsume();
 
-  const mockFn = jest.fn();
+  const mockFn = vi.fn();
   con.consume((data) => {
     mockFn(data);
   });

@@ -1,6 +1,6 @@
-export const mockConsoleError = jest.fn();
-export const mockConsoleWarn = jest.fn();
-// const mockConsoleInfo = jest.fn();
+export const mockConsoleError = vi.fn();
+export const mockConsoleWarn = vi.fn();
+// const mockConsoleInfo = vi.fn();
 console.error = mockConsoleError;
 console.warn = mockConsoleWarn;
 

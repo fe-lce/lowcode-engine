@@ -235,7 +235,7 @@ describe('Props 类测试', () => {
   });
 
   it('迭代器 / map / forEach', () => {
-    const mockFn = jest.fn();
+    const mockFn = vi.fn();
     for (const item of props) {
       mockFn();
     }

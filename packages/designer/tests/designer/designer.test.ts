@@ -52,12 +52,12 @@ describe('Designer 测试', () => {
 
   describe('onDragstart / onDrag / onDragend', () => {
     it('IPublicEnumDragObjectType.Node', () => {
-      const dragStartMockFn = jest.fn();
-      const dragMockFn = jest.fn();
-      const dragEndMockFn = jest.fn();
-      const dragStartMockFn2 = jest.fn();
-      const dragMockFn2 = jest.fn();
-      const dragEndMockFn2 = jest.fn();
+      const dragStartMockFn = vi.fn();
+      const dragMockFn = vi.fn();
+      const dragEndMockFn = vi.fn();
+      const dragStartMockFn2 = vi.fn();
+      const dragMockFn2 = vi.fn();
+      const dragEndMockFn2 = vi.fn();
 
       const designer = new Designer({
         editor,
@@ -120,12 +120,12 @@ describe('Designer 测试', () => {
     });
 
     it('IPublicEnumDragObjectType.NodeData', () => {
-      const dragStartMockFn = jest.fn();
-      const dragMockFn = jest.fn();
-      const dragEndMockFn = jest.fn();
-      const dragStartMockFn2 = jest.fn();
-      const dragMockFn2 = jest.fn();
-      const dragEndMockFn2 = jest.fn();
+      const dragStartMockFn = vi.fn();
+      const dragMockFn = vi.fn();
+      const dragEndMockFn = vi.fn();
+      const dragStartMockFn2 = vi.fn();
+      const dragMockFn2 = vi.fn();
+      const dragEndMockFn2 = vi.fn();
 
       const designer = new Designer({
         editor,
@@ -399,7 +399,7 @@ describe('Designer 测试', () => {
   describe('loadIncrementalAssets', () => {
     it('components && packages', async () => {
       editor.set('assets', { components: [], packages: [] });
-      const fn = jest.fn();
+      const fn = vi.fn();
 
       project.mountSimulator({
         setupComponents: fn,
@@ -425,7 +425,7 @@ describe('Designer 测试', () => {
 
     it('no components && packages', async () => {
       editor.set('assets', { components: [], packages: [] });
-      const fn = jest.fn();
+      const fn = vi.fn();
 
       project.mountSimulator({
         setupComponents: fn,
@@ -482,7 +482,7 @@ describe('Designer 测试', () => {
   });
 
   it('autorun', async () => {
-    const mockFn = jest.fn();
+    const mockFn = vi.fn();
     designer.autorun(() => {
       mockFn();
     }, true);

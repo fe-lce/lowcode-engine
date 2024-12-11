@@ -193,16 +193,16 @@ describe('NodeChildren 方法测试', () => {
     const firstBtn = doc.getNode('node_k1ow3cbn')!;
     const { children } = firstBtn.parent!;
 
-    const changeMockFn = jest.fn();
+    const changeMockFn = vi.fn();
     const offChange = children.onChange(changeMockFn);
-    const rmMockFn = jest.fn((item) => {
+    const rmMockFn = vi.fn((item) => {
       if (item.index === 1) return true;
       return false;
     });
-    const addMockFn = jest.fn((children) => {
+    const addMockFn = vi.fn((children) => {
       return [{ componentName: 'Button' }, { componentName: 'Button' }];
     });
-    const sortMockFn = jest.fn((a, b) => {
+    const sortMockFn = vi.fn((a, b) => {
       return a > b ? 1 : -1;
     });
     children.mergeChildren(rmMockFn, addMockFn, sortMockFn);
@@ -219,7 +219,7 @@ describe('NodeChildren 方法测试', () => {
     const firstBtn = doc.getNode('node_k1ow3cbn')!;
     const { children } = firstBtn.parent!;
 
-    const mockFn = jest.fn();
+    const mockFn = vi.fn();
     const off = children.onInsert(mockFn);
 
     children.insert(new Node(doc, { componentName: 'Button' }));
@@ -234,7 +234,7 @@ describe('NodeChildren 方法测试', () => {
     const firstBtn = doc.getNode('node_k1ow3cbn')!;
     const { children } = firstBtn.parent!;
 
-    const modifiedMockFn = jest.fn();
+    const modifiedMockFn = vi.fn();
     divMeta.getMetadata = () => {
       return { configure: { advanced: { callbacks: { onSubtreeModified: modifiedMockFn } } } };
     };

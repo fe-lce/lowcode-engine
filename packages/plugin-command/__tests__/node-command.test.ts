@@ -152,6 +152,6 @@ describe('nodeSchemaPropType', () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 });

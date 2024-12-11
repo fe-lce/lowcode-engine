@@ -1,6 +1,6 @@
 {
   "version": "independent",
-  "npmClient": "yarn",
+  "npmClient": "pnpm",
   "registry": "http://registry.npm.alibaba-inc.com",
   "useWorkspaces": true,
   "packages": [

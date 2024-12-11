@@ -1,12 +1,9 @@
-import { IPublicModelWindow } from '../model';
-import {
-  IPublicApiPlugins,
-  IPublicApiSkeleton,
-  IPublicModelResource,
-  IPublicResourceList,
-  IPublicTypeDisposable,
-  IPublicTypeResourceType,
-} from '@felce/lowcode-types';
+import { IPublicApiPlugins } from './plugins'
+import { IPublicApiSkeleton } from './skeleton';
+import { IPublicModelResource, IPublicModelWindow } from '../model'
+import { IPublicResourceList, IPublicTypeDisposable, IPublicTypeResourceType } from '../type'
+
+
 
 export interface IPublicApiWorkspace<
   Plugins = IPublicApiPlugins,

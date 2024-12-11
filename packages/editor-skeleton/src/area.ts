@@ -4,10 +4,10 @@ import { Logger } from '@felce/lowcode-utils';
 import {
   IPublicTypeWidgetBaseConfig,
   IPublicModelArea,
-  IPublicModelWidget,
 } from '@felce/lowcode-types';
 import { WidgetContainer } from './widget/widget-container';
 import { ISkeleton } from './skeleton';
+import { IWidget } from './widget';
 
 const logger = new Logger({ level: 'warn', bizName: 'skeleton:area' });
 
@@ -15,7 +15,7 @@ export interface IArea<C, T> extends IPublicModelArea<C, T> {}
 
 export class Area<
   C extends IPublicTypeWidgetBaseConfig = any,
-  T extends IPublicModelWidget = IPublicModelWidget,
+  T extends IWidget = IWidget,
 > implements IArea<C, T>
 {
   @obx private _visible = true;

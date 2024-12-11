@@ -124,7 +124,7 @@ it('isLocationChildrenDetail', () => {
 
 it('isRowContainer', () => {
   expect(isRowContainer({ nodeType: Node.TEXT_NODE })).toBeTruthy();
-  window.getComputedStyle = jest
+  window.getComputedStyle = vi
     .fn(() => {
       return {
         getPropertyValue: (pName) => {
@@ -152,7 +152,7 @@ it('isRowContainer', () => {
 });
 
 it('isChildInline', () => {
-  window.getComputedStyle = jest
+  window.getComputedStyle = vi
     .fn(() => {
       return {
         getPropertyValue: (pName) => {
@@ -172,7 +172,7 @@ it('getRectTarget', () => {
 });
 
 it('isVerticalContainer', () => {
-  window.getComputedStyle = jest
+  window.getComputedStyle = vi
     .fn(() => {
       return {
         getPropertyValue: (pName) => {
@@ -191,7 +191,7 @@ it('isVertical', () => {
   const e2 = getMockElement('div');
   e2.appendChild(e1);
   expect(isVertical({ elements: [e1] })).toBeTruthy();
-  window.getComputedStyle = jest
+  window.getComputedStyle = vi
     .fn(() => {
       return {
         getPropertyValue: (pName) => {

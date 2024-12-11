@@ -3,14 +3,14 @@
   "version": "1.4.1",
   "description": "Utils for Ali lowCode engine",
   "files": [
-    "lib",
-    "es"
+    "dist"
   ],
-  "main": "lib/index.js",
-  "module": "es/index.js",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
   "scripts": {
-    "test": "build-scripts test --config build.test.json --jest-coverage",
-    "build": "build-scripts build"
+    "test": "vitest",
+    "test:cov": "vitest run --coverage",
+    "build": "vite build"
   },
   "dependencies": {
     "@felce/lowcode-types": "1.4.1",
@@ -25,15 +25,17 @@
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^11.2.7",
     "@types/node": "^18",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "main": "dist/index.umd.js",
+    "module": "dist/index.es.js"
   },
   "repository": {
     "type": "http",

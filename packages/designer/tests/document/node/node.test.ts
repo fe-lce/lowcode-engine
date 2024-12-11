@@ -324,7 +324,7 @@ describe('Node 方法测试', () => {
       const firstBtn = doc.getNode('node_k1ow3cbn')!;
       const secondBtn = doc.getNode('node_k1ow3cbp')!;
       const btnParent = firstBtn.parent!;
-      const mockFn = jest.fn();
+      const mockFn = vi.fn();
       const off = btnParent.onChildrenChange(mockFn);
 
       // Node 实例
@@ -348,7 +348,7 @@ describe('Node 方法测试', () => {
       const firstBtn = doc.getNode('node_k1ow3cbn')!;
       const secondBtn = doc.getNode('node_k1ow3cbp')!;
       const btnParent = firstBtn.parent!;
-      const mockFn = jest.fn();
+      const mockFn = vi.fn();
       const off = btnParent.onChildrenChange(mockFn);
 
       // Node 实例
@@ -369,7 +369,7 @@ describe('Node 方法测试', () => {
   });
 
   it('setVisible / getVisible / onVisibleChange', () => {
-    const mockFn = jest.fn();
+    const mockFn = vi.fn();
     const firstBtn = doc.getNode('node_k1ow3cbn')!;
     const off = firstBtn.onVisibleChange(mockFn);
     firstBtn.setVisible(true);
@@ -403,7 +403,7 @@ describe('Node 方法测试', () => {
   });
 
   it('onPropChange', () => {
-    const mockFn = jest.fn();
+    const mockFn = vi.fn();
     const firstBtn = doc.getNode('node_k1ow3cbn')!;
     const off = firstBtn.onPropChange(mockFn);
 
@@ -432,11 +432,11 @@ describe('Node 方法测试', () => {
     designer.createComponentMeta(pageMetadata);
 
     const pageMeta = designer.getComponentMeta('Page');
-    const autorunMockFn = jest.fn();
+    const autorunMockFn = vi.fn();
     set(pageMeta, '_transformedMetadata.configure.advanced.autoruns', [
       { name: 'a', autorun: autorunMockFn },
     ]);
-    const initialChildrenMockFn = jest.fn();
+    const initialChildrenMockFn = vi.fn();
     set(pageMeta, '_transformedMetadata.configure.advanced.initialChildren', initialChildrenMockFn);
     doc.createNode({ componentName: 'Page', props: { a: 1 } });
 
@@ -534,8 +534,8 @@ describe('Node 方法测试', () => {
     designer.createComponentMeta(divMetadata);
     designer.createComponentMeta(formMetadata);
     const callbacks = form.componentMeta.advanced.callbacks;
-    const fn1 = (callbacks.onNodeAdd = jest.fn());
-    const fn2 = (callbacks.onNodeRemove = jest.fn());
+    const fn1 = (callbacks.onNodeAdd = vi.fn());
+    const fn2 = (callbacks.onNodeRemove = vi.fn());
     const textField = doc.getNode('node_k1ow3cc9');
     form.didDropIn(textField);
     expect(fn1).toHaveBeenCalledWith(textField.internalToShellNode(), form.internalToShellNode());

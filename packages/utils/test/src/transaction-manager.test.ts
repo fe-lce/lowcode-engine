@@ -4,21 +4,21 @@ import { IPublicEnumTransitionType } from '@felce/lowcode-types';
 const type = IPublicEnumTransitionType.REPAINT;
 
 describe('TransactionManager', () => {
-  let fn1: jest.Mock;
-  let fn2: jest.Mock;
+  let fn1: vi.Mock;
+  let fn2: vi.Mock;
 
   beforeEach(() => {
-    fn1 = jest.fn();
-    fn2 = jest.fn();
+    fn1 = vi.fn();
+    fn2 = vi.fn();
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   test('executeTransaction should emit startTransaction and endTransaction events', () => {
-    const startTransactionSpy = jest.spyOn(transactionManager.emitter, 'emit');
-    const endTransactionSpy = jest.spyOn(transactionManager.emitter, 'emit');
+    const startTransactionSpy = vi.spyOn(transactionManager.emitter, 'emit');
+    const endTransactionSpy = vi.spyOn(transactionManager.emitter, 'emit');
 
     transactionManager.executeTransaction(() => {
       // Perform some action within the transaction
@@ -29,7 +29,7 @@ describe('TransactionManager', () => {
   });
 
   test('onStartTransaction should register the provided function for startTransaction event', () => {
-    const offSpy = jest.spyOn(transactionManager.emitter, 'off');
+    const offSpy = vi.spyOn(transactionManager.emitter, 'off');
 
     const offFunction = transactionManager.onStartTransaction(fn1);
 
@@ -43,7 +43,7 @@ describe('TransactionManager', () => {
   });
 
   test('onEndTransaction should register the provided function for endTransaction event', () => {
-    const offSpy = jest.spyOn(transactionManager.emitter, 'off');
+    const offSpy = vi.spyOn(transactionManager.emitter, 'off');
 
     const offFunction = transactionManager.onEndTransaction(fn2);
 

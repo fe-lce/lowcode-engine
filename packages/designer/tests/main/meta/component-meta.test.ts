@@ -1,5 +1,6 @@
 import '../../fixtures/window';
 import { Designer } from '../../../src/designer/designer';
+import {ComponentActions} from '../../../src/component-actions'
 import divMeta from '../../fixtures/component-metadata/div';
 import div2Meta from '../../fixtures/component-metadata/div2';
 import div3Meta from '../../fixtures/component-metadata/div3';
@@ -23,10 +24,9 @@ import {
 } from '../../../src/component-meta';
 
 
-jest.mock('../../../src/designer/designer', () => {
+vi.mock('../../../src/designer/designer', () => {
   return {
-    Designer: jest.fn().mockImplementation(() => {
-      const { ComponentActions } = require('../../../src/component-actions');
+    Designer: vi.fn().mockImplementation(() => {
       return {
         getGlobalComponentActions: () => [],
         componentActions: new ComponentActions(),
@@ -63,7 +63,7 @@ describe('组件元数据处理', () => {
     expect(meta.npm).toEqual({ package: '@ali/vc-div', componentName: 'Div' });
 
 
-    const mockFn = jest.fn();
+    const mockFn = vi.fn();
     const offFn = meta.onMetadataChange(mockFn);
     meta.setMetadata(divMeta);
     expect(mockFn).toHaveBeenCalledTimes(1);

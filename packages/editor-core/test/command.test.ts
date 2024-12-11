@@ -6,7 +6,7 @@ describe('Command', () => {
 
   beforeEach(() => {
     commandInstance = new Command();
-    mockHandler = jest.fn();
+    mockHandler = vi.fn();
   });
 
   describe('registerCommand', () => {
@@ -47,7 +47,7 @@ describe('Command', () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 });
 
@@ -57,7 +57,7 @@ describe('unregisterCommand', () => {
 
   beforeEach(() => {
     commandInstance = new Command();
-    mockHandler = jest.fn();
+    mockHandler = vi.fn();
     // 先注册一个命令以便之后注销
     const command = {
       name: 'testCommand',
@@ -83,7 +83,7 @@ describe('unregisterCommand', () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 });
 
@@ -93,7 +93,7 @@ describe('executeCommand', () => {
 
   beforeEach(() => {
     commandInstance = new Command();
-    mockHandler = jest.fn();
+    mockHandler = vi.fn();
     // 注册一个带参数校验的命令
     const command = {
       name: 'testCommand',
@@ -145,7 +145,7 @@ describe('executeCommand', () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 });
 
@@ -157,8 +157,8 @@ describe('batchExecuteCommand', () => {
 
   beforeEach(() => {
     commandInstance = new Command();
-    mockHandler = jest.fn();
-    mockExecuteTransaction = jest.fn(callback => callback());
+    mockHandler = vi.fn();
+    mockExecuteTransaction = vi.fn(callback => callback());
     mockPluginContext = {
       common: {
         utils: {
@@ -219,7 +219,7 @@ describe('batchExecuteCommand', () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 });
 
@@ -229,7 +229,7 @@ describe('listCommands', () => {
 
   beforeEach(() => {
     commandInstance = new Command();
-    mockHandler = jest.fn();
+    mockHandler = vi.fn();
   });
 
   it('should list all registered commands', () => {
@@ -272,7 +272,7 @@ describe('listCommands', () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 });
 
@@ -284,9 +284,9 @@ describe('onCommandError', () => {
 
   beforeEach(() => {
     commandInstance = new Command();
-    mockHandler = jest.fn();
-    mockErrorHandler1 = jest.fn();
-    mockErrorHandler2 = jest.fn();
+    mockHandler = vi.fn();
+    mockErrorHandler1 = vi.fn();
+    mockErrorHandler2 = vi.fn();
 
     // 注册一个命令，该命令会抛出错误
     const command = {
@@ -321,6 +321,6 @@ describe('onCommandError', () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 });

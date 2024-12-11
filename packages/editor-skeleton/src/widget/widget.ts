@@ -7,7 +7,9 @@ import { ISkeleton } from '../skeleton';
 import { WidgetView } from '../components/widget-views';
 import { IPublicModelWidget, IPublicTypeTitleContent } from '@felce/lowcode-types';
 
-export interface IWidget extends IPublicModelWidget {}
+export interface IWidget extends Omit<IPublicModelWidget, 'skeleton'> {
+  skeleton: ISkeleton
+}
 
 export class Widget implements IWidget {
   readonly isWidget = true;
@@ -120,6 +122,6 @@ export class Widget implements IWidget {
   }
 }
 
-export function isWidget(obj: any): obj is IPublicModelWidget {
+export function isWidget(obj: any): obj is IWidget {
   return obj && obj.isWidget;
 }

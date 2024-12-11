@@ -1,4 +1,26 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Schema Ut > props 1`] = `
+{
+  "props": {
+    "mobileSlot": {
+      "name": undefined,
+      "params": undefined,
+      "title": undefined,
+      "type": "JSSlot",
+      "value": [
+        {
+          "loop": {
+            "mock": undefined,
+            "type": "JSExpression",
+            "value": "props.content",
+          },
+        },
+      ],
+    },
+  },
+}
+`;
 
 exports[`Schema Ut props 1`] = `
 Object {

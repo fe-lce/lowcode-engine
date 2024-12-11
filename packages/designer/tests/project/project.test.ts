@@ -7,10 +7,10 @@ import { Designer } from '../../src/designer/designer';
 import formSchema from '../fixtures/schema/form';
 import { getIdsFromSchema, getNodeFromSchemaById } from '../utils';
 
-const mockCreateSettingEntry = jest.fn();
-jest.mock('../../src/designer/designer', () => {
+const mockCreateSettingEntry = vi.fn();
+vi.mock('../../src/designer/designer', () => {
   return {
-    Designer: jest.fn().mockImplementation(() => {
+    Designer: vi.fn().mockImplementation(() => {
       return {
         getComponentMeta() {
           return {
@@ -76,7 +76,7 @@ describe('schema 生成节点模型测试', () => {
       });
       project.open();
       expect(project).toBeTruthy();
-      const mockCallback = jest.fn();
+      const mockCallback = vi.fn();
       const removeListener = project.onSimulatorReady(mockCallback);
       project.mountSimulator(undefined);
       expect(mockCallback).toBeCalled();

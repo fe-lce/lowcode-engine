@@ -1,7 +1,7 @@
 import { Detecting } from '../../src/designer/detecting';
 
 it('Detecting 测试', () => {
-  const fn = jest.fn();
+  const fn = vi.fn();
   const detecting = new Detecting();
   detecting.onDetectingChange(fn);
 

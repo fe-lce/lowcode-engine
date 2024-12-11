@@ -46,9 +46,9 @@ describe('Dragon 测试', () => {
   });
 
   it.skip('drag NodeData', () => {
-    const dragStartMockFn = jest.fn();
-    const dragMockFn = jest.fn();
-    const dragEndMockFn = jest.fn();
+    const dragStartMockFn = vi.fn();
+    const dragMockFn = vi.fn();
+    const dragEndMockFn = vi.fn();
 
     dragon.onDragstart((e) => {
       console.log('start', e, e.originalEvent, e.originalEvent.clientX);
@@ -83,9 +83,9 @@ describe('Dragon 测试', () => {
   });
 
   it('mouse NodeData', () => {
-    const dragStartMockFn = jest.fn();
-    const dragMockFn = jest.fn();
-    const dragEndMockFn = jest.fn();
+    const dragStartMockFn = vi.fn();
+    const dragMockFn = vi.fn();
+    const dragEndMockFn = vi.fn();
 
     const offDragStart = dragon.onDragstart(dragStartMockFn);
 
@@ -111,9 +111,9 @@ describe('Dragon 测试', () => {
   });
 
   it('mouse Node', () => {
-    const dragStartMockFn = jest.fn();
-    const dragMockFn = jest.fn();
-    const dragEndMockFn = jest.fn();
+    const dragStartMockFn = vi.fn();
+    const dragMockFn = vi.fn();
+    const dragEndMockFn = vi.fn();
 
     const offDragStart = dragon.onDragstart(dragStartMockFn);
     const offDrag = dragon.onDrag(dragMockFn);
@@ -160,9 +160,9 @@ describe('Dragon 测试', () => {
   });
 
   it('mouse Node & esc', () => {
-    const dragStartMockFn = jest.fn();
-    const dragMockFn = jest.fn();
-    const dragEndMockFn = jest.fn();
+    const dragStartMockFn = vi.fn();
+    const dragMockFn = vi.fn();
+    const dragEndMockFn = vi.fn();
 
     const offDragStart = dragon.onDragstart(dragStartMockFn);
     const offDrag = dragon.onDrag(dragMockFn);
@@ -181,9 +181,9 @@ describe('Dragon 测试', () => {
   });
 
   it('mouse Node & copy', () => {
-    const dragStartMockFn = jest.fn();
-    const dragMockFn = jest.fn();
-    const dragEndMockFn = jest.fn();
+    const dragStartMockFn = vi.fn();
+    const dragMockFn = vi.fn();
+    const dragEndMockFn = vi.fn();
 
     const offDragStart = dragon.onDragstart(dragStartMockFn);
     const offDrag = dragon.onDrag(dragMockFn);
@@ -197,7 +197,7 @@ describe('Dragon 测试', () => {
       new MouseEvent('mousedown', { clientX: 100, clientY: 100 }),
     );
 
-    const mockFn1 = jest.fn();
+    const mockFn1 = vi.fn();
     project.mountSimulator({ setCopyState: mockFn1 });
     expect(dragon.getSimulators().size).toBe(1);
     fireEvent.keyDown(document, { ctrlKey: true });
@@ -205,14 +205,14 @@ describe('Dragon 测试', () => {
   });
 
   it('from', () => {
-    const dragStartMockFn = jest.fn();
-    const dragMockFn = jest.fn();
-    const dragEndMockFn = jest.fn();
+    const dragStartMockFn = vi.fn();
+    const dragMockFn = vi.fn();
+    const dragEndMockFn = vi.fn();
 
     const offDragStart = dragon.onDragstart(dragStartMockFn);
     const offDrag = dragon.onDrag(dragMockFn);
     const offDragEnd = dragon.onDragend(dragEndMockFn);
-    const mockBoostFn = jest
+    const mockBoostFn = vi
       .fn((e) => {
         return {
           type: IPublicEnumDragObjectType.Node,
@@ -290,7 +290,7 @@ describe('Dragon 测试', () => {
   });
 
   it('has sensor', () => {
-    const mockFn1 = jest.fn();
+    const mockFn1 = vi.fn();
     const mockDoc = document.createElement('iframe').contentWindow?.document;
     dragon.addSensor({
       fixEvent: () => {},
@@ -304,7 +304,7 @@ describe('Dragon 测试', () => {
       setDraggingState: () => {},
     });
 
-    const mockBoostFn = jest
+    const mockBoostFn = vi
       .fn((e) => {
         return {
           type: IPublicEnumDragObjectType.Node,

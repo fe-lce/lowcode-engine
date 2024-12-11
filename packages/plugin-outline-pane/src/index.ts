@@ -1,42 +1,9 @@
-import { Pane } from './views/pane';
+
 import { IconOutline } from './icons/outline';
 import { IPublicModelPluginContext, IPublicModelDocumentModel } from '@felce/lowcode-types';
 import { MasterPaneName, BackupPaneName } from './helper/consts';
 import { TreeMaster } from './controllers/tree-master';
-import { PaneController } from './controllers/pane-controller';
-import { useState, useEffect } from 'react';
-
-export function OutlinePaneContext(props: {
-  treeMaster?: TreeMaster;
-
-  pluginContext: IPublicModelPluginContext;
-
-  options: any;
-
-  paneName: string;
-
-  hideFilter?: boolean;
-}) {
-  const treeMaster = props.treeMaster || new TreeMaster(props.pluginContext, props.options);
-  const [masterPaneController, setMasterPaneController] = useState(
-    () => new PaneController(props.paneName || MasterPaneName, treeMaster),
-  );
-  useEffect(() => {
-    return treeMaster.onPluginContextChange(() => {
-      setMasterPaneController(new PaneController(props.paneName || MasterPaneName, treeMaster));
-    });
-  }, []);
-
-  return (
-    <Pane
-      treeMaster={treeMaster}
-      controller={masterPaneController}
-      key={masterPaneController.id}
-      hideFilter={props.hideFilter}
-      {...props}
-    />
-  );
-}
+import { OutlinePaneContext } from './pane-context';
 
 export const OutlinePlugin = (ctx: IPublicModelPluginContext, options: any) => {
   const { skeleton, config, canvas, project } = ctx;
@@ -60,14 +27,17 @@ export const OutlinePlugin = (ctx: IPublicModelPluginContext, options: any) => {
         name: 'outlinePane',
         type: 'PanelDock',
         index: -1,
-        content: {
-          name: MasterPaneName,
-          props: {
-            icon: IconOutline,
-            description: treeMaster.pluginContext.intlNode('Outline Tree'),
-          },
-          content: OutlinePaneContext,
-        },
+        content: [
+          {
+            name: MasterPaneName,
+            type: 'Panel',
+            props: {
+              icon: IconOutline,
+              description: treeMaster.pluginContext.intlNode('Outline Tree'),
+            },
+            content: OutlinePaneContext,
+          }
+        ],
         panelProps: {
           area: isInFloatArea ? 'leftFloatArea' : 'leftFixedArea',
           keepVisibleWhileDragging: true,

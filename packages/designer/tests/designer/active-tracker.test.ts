@@ -4,7 +4,7 @@ import { ActiveTracker } from '../../src/designer/active-tracker';
 it('ActiveTracker 测试，Node', () => {
   const tracker = new ActiveTracker();
 
-  const mockFn = jest.fn();
+  const mockFn = vi.fn();
   const mockNode = { isNode: true };
   const off = tracker.onChange(mockFn);
 
@@ -22,7 +22,7 @@ it('ActiveTracker 测试，Node', () => {
 it('ActiveTracker 测试，ActiveTarget', () => {
   const tracker = new ActiveTracker();
 
-  const mockFn = jest.fn();
+  const mockFn = vi.fn();
   const mockNode = { isNode: true };
   const off = tracker.onChange(mockFn);
   const mockTarget = { node: mockNode, detail: { isDetail: true }, instance: { isInstance: true } };

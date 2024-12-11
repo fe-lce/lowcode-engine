@@ -4,10 +4,10 @@ import { Designer } from '../../../src/designer/designer';
 import formSchema from '../../fixtures/schema/form';
 import { getIdsFromSchema, getNodeFromSchemaById } from '../../utils';
 
-const mockCreateSettingEntry = jest.fn();
-jest.mock('../../../src/designer/designer', () => {
+const mockCreateSettingEntry = vi.fn();
+vi.mock('../../../src/designer/designer', () => {
   return {
-    Designer: jest.fn().mockImplementation(() => {
+    Designer: vi.fn().mockImplementation(() => {
       return {
         getComponentMeta() {
           return {
