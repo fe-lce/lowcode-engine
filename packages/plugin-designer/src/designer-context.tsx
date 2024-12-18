@@ -127,7 +127,6 @@ export class DesignerPlugin extends PureComponent<PluginProps, DesignerPluginSta
       requestHandlersMap,
       locale,
     } = this.state;
-    debugger;
 
     if (!library || !componentMetadatas) {
       // TODO: use a Loading

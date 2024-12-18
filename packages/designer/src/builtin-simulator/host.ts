@@ -438,7 +438,6 @@ export class BuiltinSimulatorHost implements ISimulatorHost<BuiltinSimulatorProp
   }
 
   async mountContentFrame(iframe: HTMLIFrameElement | null): Promise<void> {
-    debugger;
     if (!iframe || this._iframe === iframe) {
       return;
     }
@@ -466,7 +465,6 @@ export class BuiltinSimulatorHost implements ISimulatorHost<BuiltinSimulatorProp
       // required & use once
       assetBundle(this.get('simulatorUrl') || defaultSimulatorUrl, AssetLevel.Runtime),
     ];
-    debugger;
 
     // wait 准备 iframe 内容、依赖库注入
     const renderer = await createSimulator(this, iframe, vendors);

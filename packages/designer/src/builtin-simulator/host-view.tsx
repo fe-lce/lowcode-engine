@@ -113,7 +113,6 @@ class Content extends Component<{ host: BuiltinSimulatorHost }> {
     }
 
     const { viewName } = designer;
-    debugger;
 
     return (
       <div className="lc-simulator-content">
