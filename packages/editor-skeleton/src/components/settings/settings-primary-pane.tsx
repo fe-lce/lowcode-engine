@@ -20,7 +20,6 @@ import { createIcon } from '@felce/lowcode-utils';
 
 interface ISettingsPrimaryPaneProps {
   engineEditor: Editor;
-  config: any;
 }
 
 @observer

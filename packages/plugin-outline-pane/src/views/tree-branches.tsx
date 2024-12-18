@@ -24,7 +24,8 @@ export default class TreeBranches extends PureComponent<{
 
     const { treeNode } = this.props;
     const { filterWorking, matchChild } = treeNode.filterReult;
-    this.setState({ filterWorking, matchChild });
+    this.state.filterWorking = filterWorking;
+    this.state.matchChild = matchChild;
   }
 
   componentDidMount() {

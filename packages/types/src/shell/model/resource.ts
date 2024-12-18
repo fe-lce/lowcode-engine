@@ -7,7 +7,7 @@ export interface IBaseModelResource<
 
   get id(): string | undefined;
 
-  get icon(): ReactElement | undefined;
+  get icon(): ReactElement | React.FunctionComponent | React.ComponentClass | undefined;
 
   get options(): Record<string, any>;
 

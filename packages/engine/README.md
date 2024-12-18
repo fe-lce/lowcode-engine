@@ -91,29 +91,33 @@ init(document.getElementById('lce'));
 
 ```html
 https://unpkg.com/@felce/lowcode-engine@1.4.1/dist/js/engine-core.js
+<!-- react画布 -->
 https://unpkg.com/@felce/lowcode-react-simulator-renderer@1.4.1/dist/js/react-simulator-renderer.js
-https://unpkg.com/@felce/lowcode-react-simulator-renderer@1.4.1/dist/js/vue-simulator-renderer.js
+<!-- vue 画布 -->
+https://unpkg.com/@felce/lowcode-vue-simulator-renderer@1.6.0/dist/vue-simulator-renderer.js
 ```
 
 #### npmmirror
 
+✨ 国内用户推荐
+
 ```html
 https://registry.npmmirror.com/@felce/lowcode-engine/1.4.1/files/dist/js/engine-core.js
+<!-- react画布 -->
 https://registry.npmmirror.com/@felce/lowcode-react-simulator-renderer/1.4.1/files/dist/js/react-simulator-renderer.js
-https://registry.npmmirror.com/@felce/lowcode-vue-simulator-renderer/1.4.1/files/dist/js/react-simulator-renderer.js
+<!-- vue 画布 -->
+https://registry.npmmirror.com/@felce/lowcode-vue-simulator-renderer/1.6.0/files/dist/vue-simulator-renderer.js
 ```
 
 #### jsdelivr
 
 ```html
 https://cdn.jsdelivr.net/npm/@felce/lowcode-engine@1.4.1/dist/js/engine-core.js
+<!-- react画布 -->
 https://cdn.jsdelivr.net/npm/@felce/lowcode-react-simulator-renderer@1.4.1/dist/js/react-simulator-renderer.js
-https://cdn.jsdelivr.net/npm/@felce/lowcode-vue-simulator-renderer@1.4.1/dist/js/react-simulator-renderer.js
+<!-- vue 画布 -->
+https://cdn.jsdelivr.net/npm/@felce/lowcode-vue-simulator-renderer@1.6.0/dist/react-simulator-renderer.js
 ```
-
-#### 使用自有 cdn
-
-将源码中 packages/engine/dist 和 packages/react-simulator-renderer/dist（packages/vue-simulator-renderer/dist） 下的文件传至你的 cdn 提供商
 
 ## 🧺渲染器
 

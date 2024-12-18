@@ -4,7 +4,7 @@ export interface IResourceType
   extends Omit<IPublicTypeResourceType, 'resourceName' | 'resourceType'> {
   name: string;
 
-  type: 'editor' | 'webview';
+  type: 'editor' | 'webview' | string;
 
   resourceTypeModel: IPublicTypeResourceType;
 }

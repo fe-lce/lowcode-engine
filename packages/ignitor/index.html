@@ -6,18 +6,26 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1" />
   <meta name="viewport" content="width=device-width" />
   <title>LowCodeEngine Editor DEMO</title>
+  <link href="https://alifd.alicdn.com/npm/@alifd/theme-2@2.0.0/variables.css" rel="stylesheet" />
+  <link href="https://alifd.alicdn.com/npm/@alifd/theme-2@2.0.0/dist/next.var.min.css" rel="stylesheet" />
+
+  <!-- React，可替换为 production 包 -->
+  <script src="https://g.alicdn.com/code/lib/react/18.3.1/umd/react.production.min.js"></script>
+  <!-- React DOM，可替换为 production 包 -->
+  <script src="https://g.alicdn.com/code/lib/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+  <!-- React 向下兼容，预防物料层的依赖 -->
+  <script src="https://g.alicdn.com/code/lib/prop-types/15.7.2/prop-types.js"></script>
+  <!-- lodash，低代码编辑器的依赖 -->
+  <script src="https://g.alicdn.com/platform/c/lodash/4.6.1/lodash.min.js"></script>
+  <!-- 日期处理包，Fusion Next 的依赖 -->
+  <script src="https://g.alicdn.com/mylib/moment/2.24.0/min/moment.min.js"></script>
+  <!-- Fusion Next 的主包，低代码编辑器的依赖 -->
+  <script src="https://g.alicdn.com/code/lib/alifd__next/1.24.18/next.min.js"></script>
 </head>
 
 <body>
-  <h1>
-    This project only provides engine resource files. For usage, go for
-    <a href="https://github.com/fe-lce/lowcode-demo" target="_blank">Lowcode Demo</a>
-  </h1>
-  <h2>
-    For local debugging of lowcode engine, please visit
-    <a href="https://lowcode-engine.cn/site/docs/participate/prepare" target="_blank">proxy documentation</a>
-    to get more information.
-  </h2>
+  <div id="lce-container"></div>
+  <script type="module" src="./src/index.ts"></script>
 </body>
 
 </html>

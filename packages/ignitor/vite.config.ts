@@ -2,26 +2,34 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import dts from 'vite-plugin-dts';
-import lernaConfig from '../../lerna.json'
+import lernaConfig from '../../lerna.json';
 
 export default defineConfig(({ mode }) => {
-  console.log('lernaConfig', lernaConfig)
   return {
-    plugins: [react(), dts({
-      entryRoot: 'src/',
-    })],
+    plugins: [
+      react({
+        tsDecorators: true,
+      }),
+      dts({
+        entryRoot: 'src/',
+      }),
+    ],
     define: {
       'process.env': {
         NODE_ENV: mode,
       },
-      'VERSION_PLACEHOLDER': JSON.stringify(lernaConfig.version)
+      VERSION_PLACEHOLDER: JSON.stringify(lernaConfig.version),
     },
     test: {
       globals: true,
-      environment: "jsdom",
-      setupFiles: '../../vitest.setup.ts'
+      environment: 'jsdom',
+      setupFiles: '../../vitest.setup.ts',
     },
     preview: {
+      port: 5555,
+      strictPort: true,
+    },
+    server: {
       port: 5555,
       strictPort: true,
     },
@@ -30,7 +38,7 @@ export default defineConfig(({ mode }) => {
         entry: '../engine/src/index.ts',
         fileName: (format, entryName) => `engine-core.${format}.js`,
         name: 'AliLowCodeEngine',
-        cssFileName: 'engine-core'
+        cssFileName: 'engine-core',
       },
       rollupOptions: {
         output: {
@@ -42,8 +50,8 @@ export default defineConfig(({ mode }) => {
             moment: 'moment',
             lodash: '_',
             'prop-types': 'PropTypes',
-            "@felce/lowcode-engine": "AliLowCodeEngine",
-            "@felce/lowcode-engine-ext": "AliLowCodeEngineExt"
+            '@felce/lowcode-engine': 'AliLowCodeEngine',
+            '@felce/lowcode-engine-ext': 'AliLowCodeEngineExt',
           },
         },
         external: [
@@ -53,8 +61,8 @@ export default defineConfig(({ mode }) => {
           'moment',
           'lodash',
           '@alifd/next',
-          "@felce/lowcode-engine",
-          "@felce/lowcode-engine-ext"
+          '@felce/lowcode-engine',
+          '@felce/lowcode-engine-ext',
         ],
       },
     },

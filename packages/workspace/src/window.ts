@@ -1,9 +1,11 @@
 import { uniqueId } from '@felce/lowcode-utils';
-import { createModuleEventBus, IEventBus, makeObservable, obx } from '@felce/lowcode-editor-core';
+import { createModuleEventBus, Editor, IEngineConfig, IEventBus, IHotKey, ISetters, makeObservable, obx } from '@felce/lowcode-editor-core';
 import { Context, IViewContext } from './context/view-context';
 import { IWorkspace } from './workspace';
 import { IResource } from './resource';
-import { IPublicModelWindow, IPublicTypeDisposable } from '@felce/lowcode-types';
+import { IPublicApiPlugins, IPublicApiProject, IPublicModelWindow, IPublicTypeDisposable } from '@felce/lowcode-types';
+import { IDesigner, ILowCodePluginManager, IProject } from '@felce/lowcode-designer';
+import { ISkeleton } from '@felce/lowcode-editor-skeleton';
 
 interface IWindowCOnfig {
   title: string | undefined;
@@ -19,11 +21,48 @@ export interface IEditorWindow
   > {
   readonly resource: IResource;
 
+  title: string | undefined;
+
+  url: string | undefined;
+
   editorViews: Map<string, IViewContext>;
 
   _editorView: IViewContext;
 
+  editorView: Context;
+
+
+  project: IPublicApiProject
+
+  innerProject: IProject
+
+  innerSkeleton: ISkeleton
+
+  innerSetters: ISetters
+
+  innerHotkey: IHotKey
+
+  editor: Editor
+
+  designer: IDesigner
+
+  plugins: IPublicApiPlugins
+
+  innerPlugins: ILowCodePluginManager
+
+  workspace: IWorkspace
+
+  resourceType: string
+
+  initViewTypes: (name: string) => Promise<void>
+
   changeViewName: (name: string, ignoreEmit?: boolean) => void;
+
+  execViewTypesInit: () => Promise<void>
+
+  setDefaultViewName: () => void
+
+  initViewType: (name: string) => Promise<void>
 
   initReady: boolean;
 
@@ -50,7 +89,7 @@ export enum WINDOW_STATE {
 
 export class EditorWindow implements IEditorWindow {
   id: string = uniqueId('window');
-  icon: React.ReactElement | undefined;
+  icon: React.ReactElement | React.FunctionComponent | React.ComponentClass | undefined;
 
   private emitter: IEventBus = createModuleEventBus('Project');
 

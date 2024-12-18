@@ -25,7 +25,7 @@ import { PanelDock } from './widget/panel-dock';
 import { Dock } from './widget/dock';
 import { Stage, StageConfig } from './widget/stage';
 import { isValidElement } from 'react';
-import { isPlainObject, uniqueId, Logger } from '@felce/lowcode-utils';
+import { isPlainObject, uniqueId, Logger, isReactComponent } from '@felce/lowcode-utils';
 import { Divider } from '@alifd/next';
 import {
   EditorConfig,
@@ -458,7 +458,7 @@ export class Skeleton implements ISkeleton {
     }
     const { content, ...restConfig } = config;
     if (content) {
-      if (isPlainObject(content) && !isValidElement(content)) {
+      if (isPlainObject(content) && (isReactComponent(content) || !isValidElement(content))) {
         Object.keys(content).forEach((key: any) => {
           if (/props$/i.test(key) && restConfig[key]) {
             restConfig[key] = {
@@ -498,7 +498,6 @@ export class Skeleton implements ISkeleton {
     extraConfig?: Record<string, any>,
   ): IWidget | Widget | Panel | Stage | Dock | PanelDock | undefined {
     const registeredTransducers = this.getRegisteredConfigTransducers();
-
     const parsedConfig = registeredTransducers.reduce(
       (prevConfig, current) => {
         return current(prevConfig);

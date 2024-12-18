@@ -14,7 +14,7 @@ export interface IPublicModelWindow<
   title?: string;
 
   /** 窗口 icon */
-  icon?: ReactElement;
+  icon?: ReactElement | React.FunctionComponent | React.ComponentClass;
 
   /** 窗口资源类型 */
   resource?: Resource;

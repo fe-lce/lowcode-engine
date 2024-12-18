@@ -30,6 +30,10 @@ export function SVGIcon({
   if (SizePresets.hasOwnProperty(size)) {
     size = SizePresets[size];
   }
+  if (props.class) {
+    props.className = props.class;
+    delete props.class;
+  }
 
   return (
     <svg

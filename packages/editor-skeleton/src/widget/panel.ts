@@ -1,4 +1,4 @@
-import { createElement, ReactNode } from 'react';
+import { createElement, isValidElement, ReactNode } from 'react';
 import {
   obx,
   computed,
@@ -6,7 +6,7 @@ import {
   IEventBus,
   createModuleEventBus,
 } from '@felce/lowcode-editor-core';
-import { uniqueId, createContent } from '@felce/lowcode-utils';
+import { uniqueId, createContent, isReactComponent } from '@felce/lowcode-utils';
 import {
   IPublicTypeHelpTipConfig,
   IPublicTypePanelConfig,
@@ -121,7 +121,7 @@ export class Panel implements IWidget {
       props.onInit.call(this, this);
     }
 
-    if (typeof content !== 'string' && content && content.onInit) {
+    if (typeof content !== 'string' && content?.onInit) {
       content.onInit.call(this, this);
     }
     // todo: process shortcut

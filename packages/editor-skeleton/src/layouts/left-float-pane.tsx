@@ -140,6 +140,7 @@ export default class LeftFloatPane extends Component<{
 class Contents extends Component<{ area: Area<any, Panel> }> {
   render() {
     const { area } = this.props;
+
     return <Fragment>{area.container.items.map((panel) => panel.content)}</Fragment>;
   }
 }

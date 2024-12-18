@@ -1,5 +1,11 @@
 import { ReactElement, ComponentType, ReactNode } from 'react';
-import { IPublicTypeI18nData, IPublicTypeIconType, IPublicTypeTitleContent, IPublicTypeWidgetConfigArea, TipContent } from './';
+import {
+  IPublicTypeI18nData,
+  IPublicTypeIconType,
+  IPublicTypeTitleContent,
+  IPublicTypeWidgetConfigArea,
+  TipContent,
+} from './';
 
 export type IPublicTypeHelpTipConfig = string | { url?: string; content?: string | ReactElement };
 
@@ -19,6 +25,7 @@ export interface IPublicTypePanelConfigProps extends IPublicTypePanelDockPanelPr
 
 export interface IPublicTypePanelConfig extends IPublicTypeWidgetBaseConfig {
   type: 'Panel';
+  onInit?: (widget: any) => any;
   content?: string | ReactElement | ComponentType<any> | IPublicTypePanelConfig[]; // as children
   props?: IPublicTypePanelConfigProps;
 }

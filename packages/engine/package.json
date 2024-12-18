@@ -5,9 +5,10 @@
   "files": [
     "dist"
   ],
-  "main": "src/index.tsx",
-  "module": "src/index.tsx",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
   "scripts": {
+    "start": "vite",
     "preview": "vite preview",
     "build": "vite build",
     "build:watch": "vite build --watch"
@@ -40,6 +41,7 @@
     "build-plugin-react-app": "^1.8.0",
     "fs-extra": "^10.0.0",
     "prop-types": "^15.7.2",
+    "@types/prop-types": "^15.7.14",
     "tsconfig-paths-webpack-plugin": "^3.2.0"
   },
   "publishConfig": {

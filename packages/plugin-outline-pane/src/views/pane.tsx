@@ -10,6 +10,7 @@ import { IPublicTypeDisposable } from '@felce/lowcode-types';
 
 export class Pane extends PureComponent<
   {
+    tree?: Tree | null;
     treeMaster: TreeMaster;
     controller: PaneController;
     hideFilter?: boolean;

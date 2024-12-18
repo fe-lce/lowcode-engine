@@ -1,4 +1,3 @@
-
 import { IconOutline } from './icons/outline';
 import { IPublicModelPluginContext, IPublicModelDocumentModel } from '@felce/lowcode-types';
 import { MasterPaneName, BackupPaneName } from './helper/consts';
@@ -35,18 +34,22 @@ export const OutlinePlugin = (ctx: IPublicModelPluginContext, options: any) => {
               icon: IconOutline,
               description: treeMaster.pluginContext.intlNode('Outline Tree'),
             },
+            contentProps: {
+              treeTitleExtra: config.get('treeTitleExtra'),
+              treeMaster,
+              paneName: MasterPaneName,
+            },
             content: OutlinePaneContext,
-          }
+          },
         ],
+        props: {
+          icon: IconOutline,
+          description: treeMaster.pluginContext.intlNode('Outline Tree'),
+        },
         panelProps: {
           area: isInFloatArea ? 'leftFloatArea' : 'leftFixedArea',
           keepVisibleWhileDragging: true,
           ...config.get('defaultOutlinePaneProps'),
-        },
-        contentProps: {
-          treeTitleExtra: config.get('treeTitleExtra'),
-          treeMaster,
-          paneName: MasterPaneName,
         },
       });
 

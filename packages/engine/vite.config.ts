@@ -2,7 +2,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import dts from 'vite-plugin-dts';
-import { execSync } from 'child_process'
+import { execSync } from 'child_process';
 
 // get version from git branch name,
 //  e.g. release/1.0.7 => 1.0.7
@@ -27,22 +27,28 @@ const releaseVersion = getVersion();
 
 export default defineConfig(({ mode }) => {
   return {
-    plugins: [react(), dts({
-      entryRoot: 'src/',
-    })],
+    plugins: [
+      react({
+        tsDecorators: true,
+      }),
+      dts({
+        entryRoot: 'src/',
+      }),
+    ],
     define: {
       'process.env': {
         NODE_ENV: mode,
       },
-      VERSION_PLACEHOLDER: releaseVersion
+      VERSION_PLACEHOLDER: JSON.stringify(releaseVersion),
     },
     build: {
+      input: 'src/index.ts',
       sourcemap: true,
       lib: {
         entry: './src/index.ts',
         fileName: (format, entryName) => `engine-core.${format}.js`,
         name: 'AliLowCodeEngine',
-        cssFileName: 'engine-core'
+        cssFileName: 'engine-core',
       },
       rollupOptions: {
         output: {
@@ -54,8 +60,8 @@ export default defineConfig(({ mode }) => {
             moment: 'moment',
             lodash: '_',
             'prop-types': 'PropTypes',
-            "@felce/lowcode-engine": "AliLowCodeEngine",
-            "@felce/lowcode-engine-ext": "AliLowCodeEngineExt"
+            '@felce/lowcode-engine': 'AliLowCodeEngine',
+            '@felce/lowcode-engine-ext': 'AliLowCodeEngineExt',
           },
         },
         external: [
@@ -65,8 +71,8 @@ export default defineConfig(({ mode }) => {
           'moment',
           'lodash',
           '@alifd/next',
-          "@felce/lowcode-engine",
-          "@felce/lowcode-engine-ext"
+          '@felce/lowcode-engine',
+          '@felce/lowcode-engine-ext',
         ],
       },
     },

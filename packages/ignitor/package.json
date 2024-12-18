@@ -11,7 +11,12 @@
     "build:watch": "vite build --watch"
   },
   "license": "MIT",
+  "dependencies": {
+    "@felce/lowcode-engine": "^1.4.1",
+    "@felce/lowcode-utils": "^1.4.1"
+  },
   "devDependencies": {
+    "@alilc/lowcode-datasource-fetch-handler": "^1.2.1"
   },
   "repository": {
     "type": "http",

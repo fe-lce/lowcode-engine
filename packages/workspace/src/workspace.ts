@@ -167,8 +167,8 @@ export class Workspace implements IWorkspace {
       this.openEditorWindowByResource(windowInfo);
     } else if (windowInfo) {
       this.openEditorWindow(
-        windowInfo.name,
-        windowInfo.title,
+        windowInfo.name!,
+        windowInfo.title!,
         windowInfo.options,
         windowInfo.viewName,
       );

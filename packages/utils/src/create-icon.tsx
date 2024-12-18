@@ -1,6 +1,6 @@
 import { isValidElement, ReactNode, createElement, cloneElement } from 'react';
 import { Icon } from '@alifd/next';
-import { IPublicTypeIconType } from '@felce/lowcode-types';
+import { IPublicTypeIconConfig, IPublicTypeIconType } from '@felce/lowcode-types';
 import { isReactComponent } from './is-react';
 import { isESModule } from './is-es-module';
 
@@ -20,7 +20,7 @@ export function createIcon(
     if (URL_RE.test(icon)) {
       return createElement('img', {
         src: icon,
-        class: props?.className,
+        className: props?.className,
         ...props,
       });
     }
@@ -31,10 +31,10 @@ export function createIcon(
   }
   if (isReactComponent(icon)) {
     return createElement(icon, {
-      class: props?.className,
+      className: props?.className,
       ...props,
     });
   }
 
-  return <Icon {...icon} {...props} />;
+  return <Icon {...(icon as IPublicTypeIconConfig)} {...props} />;
 }

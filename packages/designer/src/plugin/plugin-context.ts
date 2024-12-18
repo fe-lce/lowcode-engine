@@ -20,6 +20,7 @@ import {
   IPublicEnumPluginRegisterLevel,
   IPublicModelWindow,
   IPublicApiCommonUI,
+  IPublicApiCommand,
 } from '@felce/lowcode-types';
 import {
   IPluginContextOptions,
@@ -48,6 +49,7 @@ export default class PluginContext
   registerLevel: IPublicEnumPluginRegisterLevel;
   editorWindow: IPublicModelWindow;
   commonUI: IPublicApiCommonUI;
+  command: IPublicApiCommand;
   isPluginRegisteredInWorkspace: false;
 
   constructor(

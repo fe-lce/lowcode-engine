@@ -37,7 +37,9 @@ import {
 import {
   IPluginPreferenceMananger,
   IPublicApiCanvas,
+  IPublicApiCommand,
   IPublicApiCommon,
+  IPublicApiCommonUI,
   IPublicApiEvent,
   IPublicApiHotkey,
   IPublicApiMaterial,
@@ -53,7 +55,8 @@ import { getLogger, Logger as InnerLogger } from '@felce/lowcode-utils';
 import { IWorkspace } from '../workspace';
 import { IEditorWindow } from '../window';
 
-export interface IBasicContext extends Omit<IPublicModelPluginContext, 'workspace'> {
+export interface IBasicContext extends Omit<IPublicModelPluginContext, 'workspace' | 'editorWindow'> {
+  editorWindow?: IEditorWindow;
   skeleton: IPublicApiSkeleton;
   plugins: IPublicApiPlugins;
   project: IPublicApiProject;
@@ -64,6 +67,8 @@ export interface IBasicContext extends Omit<IPublicModelPluginContext, 'workspac
   event: IPublicApiEvent;
   logger: InnerLogger;
   hotkey: IPublicApiHotkey;
+  commonUI: IPublicApiCommonUI;
+  command: IPublicApiCommand;
   innerProject: IProject;
   editor: Editor;
   designer: IDesigner;
@@ -76,6 +81,7 @@ export interface IBasicContext extends Omit<IPublicModelPluginContext, 'workspac
   pluginEvent: IPublicApiEvent;
   preference: IPluginPreferenceMananger;
   workspace: IWorkspace;
+  isPluginRegisteredInWorkspace: boolean;
 }
 
 export class BasicContext implements IBasicContext {
@@ -89,6 +95,8 @@ export class BasicContext implements IBasicContext {
   event: IPublicApiEvent;
   logger: InnerLogger;
   hotkey: IPublicApiHotkey;
+  commonUI: IPublicApiCommonUI;
+  command: IPublicApiCommand;
   innerProject: IProject;
   editor: Editor;
   designer: IDesigner;
@@ -101,6 +109,7 @@ export class BasicContext implements IBasicContext {
   pluginEvent: IPublicApiEvent;
   preference: IPluginPreferenceMananger;
   workspace: IWorkspace;
+  isPluginRegisteredInWorkspace: boolean;
 
   constructor(
     innerWorkspace: IWorkspace,

@@ -17,13 +17,13 @@
     "editor"
   ],
   "dependencies": {
-    "@alifd/next": "^1.26.0",
+    "@alifd/next": "^1.27.30",
     "@felce/lowcode-designer": "1.4.1",
     "@felce/lowcode-editor-core": "1.4.1",
     "@felce/lowcode-types": "1.4.1",
     "@felce/lowcode-utils": "1.4.1",
     "@felce/lowcode-shell": "1.4.1",
-    "classnames": "^2.2.6",
+    "classnames": "^2.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
